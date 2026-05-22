@@ -44,7 +44,12 @@ class Bankaccount:
             self.__balance +=amount
  
             return f"${amount} add so total : {self.__balance}"
-
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            return f"Withdrew: ${amount}, New balance: ${self.__balance}"
+        return "Insufficient funds"
 
 account1=Bankaccount("selim",12343,1000)
 
@@ -56,10 +61,50 @@ print()
 
 
 
-account1=Bankaccount("Al Jaber Bhaiea",12343,100000000000)
+account2=Bankaccount("Al Jaber Bhaiea",12343,100000000000)
 
-print(f"Name: {account1.owner_name}")
-print(f"Account: {account1._account_num}")
-print(f"Balance: ${account1.get_balance()}")
-print(account1.deposit(99999999))
+print(f"Name: {account2.owner_name}")
+print(f"Account: {account2._account_num}")
+print(f"Balance: ${account2.get_balance()}")
+print(account2.deposit(99999999))
 print()
+
+#--------------------------
+#Inheritence
+#--------------------------
+class Savings(Bankaccount):  # inherit from Bankaccount class
+    def __init__(self, owner_name, account_num, balance, interest_rate):
+        super().__init__(owner_name, account_num, balance)  # call parent class
+        self.interest_rate = interest_rate
+    
+    def interest_add(self):
+        interest = self.get_balance() * self.interest_rate / 100
+        self.deposit(interest)
+        return f"Added interest ${interest:.2f}, Now total: ${self.get_balance()}"
+
+class StudentAccount(Bankaccount):
+    def __init__(self, own_name, account_num, balance, student_id):
+        super().__init__(own_name, account_num, balance)
+        self.student_id = student_id
+
+
+inherit1 = StudentAccount("Selim", 12343, 1000, 300)
+
+print(f"Name: {inherit1.owner_name}")
+print(f"Account: {inherit1._account_num}")
+print(f"Balance: ${inherit1.get_balance()}")
+print(inherit1.deposit(300))
+print(inherit1.withdraw(200))  
+print(inherit1.withdraw(600))  
+print()
+
+inheri2 = Savings("Al Jaber Bhaiya", 54321, 10000, 5)  
+
+print(f"Name: {inheri2.owner_name}")
+print(f"Account: {inheri2._account_num}")
+print(f"Balance: ${inheri2.get_balance()}")
+print(inheri2.deposit(5000))
+print(inheri2.interest_add())
+print(inheri2.withdraw(2000))
+
+
