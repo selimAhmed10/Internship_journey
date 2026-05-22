@@ -84,7 +84,7 @@ class Savings(Bankaccount):  # inherit from Bankaccount class
 
 class StudentAccount(Bankaccount):
     def __init__(self, own_name, account_num, balance, student_id):
-        super().__init__(own_name, account_num, balance)
+        super().__init__(own_name, account_num, balance)   # inherit from Bankaccount class
         self.student_id = student_id
 
 
@@ -108,3 +108,22 @@ print(inheri2.interest_add())
 print(inheri2.withdraw(2000))
 
 
+#Abstractions : 
+
+from abc import ABC, abstractmethod
+
+class AccountRules(ABC):     
+    @abstractmethod
+    def show_rules(self):   #pass the value for future implement
+        pass
+
+class NewSavings(Savings, AccountRules):
+    def show_rules(self):
+        return f"Rule: {self.interest_rate} interest, max withdraw can 500"
+
+test= NewSavings("check",99999,5000,5)
+print()
+print(test.show_rules())
+print(f"Name:{test.owner_name}")
+print(f"Balance:{test.get_balance()}")
+print(test.interest_add())
