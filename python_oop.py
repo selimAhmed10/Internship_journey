@@ -167,3 +167,44 @@ emergency_user=EmergencyBank("Al Jaber Bhaiya",1234567,10000000)
 emergency_user.emergency_deposit(20000000)
 print()
 emergency_user.emergency_withdraw(177)
+
+
+
+#Generators---------------------
+
+class Transaction(Bankaccount):
+    
+    def __init__(self, owner_name, account_num, balance):  #inherit the bank class 
+        super().__init__(owner_name, account_num, balance)
+        
+        self.transactions=[]  #store all the transaction
+    
+    def deposit(self, amount):
+        result=super().deposit(amount)
+        self.transactions.append(f"Deposit amount: {amount}")
+        return result
+    
+    
+    def withdraw(self, amount):
+        result=super().withdraw(amount)
+        self.transactions.append(f"Deposit amount: {amount}") 
+        return result
+    
+    def trans_history(self):
+        for trans in self.transactions:
+            yield trans  # this is a genarator , its use to store lazily one at a time and resturn also once for this large dataset can handle easily
+            
+generator_test=Transaction("Jabert bhaiya",123544,4567457) #craete the object for testing the generator
+
+generator_test.deposit(3000)
+generator_test.withdraw(1500)
+
+transaction_all_history=generator_test.trans_history() #store all in it 
+
+
+print()
+print()
+for item in transaction_all_history:  # use for each to print it .
+    print(item)
+          
+    
