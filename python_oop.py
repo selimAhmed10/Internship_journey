@@ -28,3 +28,38 @@ print(person2.display())
         
 
 
+#Encapsulation binds( method and the data unsing access modifier)
+
+class Bankaccount:
+    def __init__(self,owner_name,account_num,balance):
+        self.owner_name=owner_name   #public
+        self._account_num=account_num  #protected
+        self.__balance=balance #private 
+        
+    def get_balance(self):   #for get the value of the private 
+        return self.__balance
+    
+    def deposit(self,amount):  #normal a deposit method
+        if amount>0:
+            self.__balance +=amount
+ 
+            return f"${amount} add so total : {self.__balance}"
+
+
+account1=Bankaccount("selim",12343,1000)
+
+print(f"Name: {account1.owner_name}")
+print(f"Account: {account1._account_num}")
+print(f"Balance: ${account1.get_balance()}")
+print(account1.deposit(300))
+print()
+
+
+
+account1=Bankaccount("Al Jaber Bhaiea",12343,100000000000)
+
+print(f"Name: {account1.owner_name}")
+print(f"Account: {account1._account_num}")
+print(f"Balance: ${account1.get_balance()}")
+print(account1.deposit(99999999))
+print()
