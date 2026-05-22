@@ -1,6 +1,63 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Logs
 *.log
-.vscode/
+logs/
+*.log.*
+
+# Database
 db.sqlite3
+*.sqlite3
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
+
+# Django
+*.pot
+*.pyc
+local_settings.py
+/static/
+/media/
+
+# Middleware specific
+request_logs.txt
+request_logs_*.txt
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+*.tmp
