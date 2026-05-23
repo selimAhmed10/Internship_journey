@@ -30,7 +30,7 @@ here have multiple point -
 
 1. Firstly a user send a request using his browser by hitting a url. The user can hit url as his wants in many ways he want.
 
-2. After hiting the urls by the WSGI server receive the request.When i run the django appilication it run on multiple WSGi server like that Gunicorn , django development server and more. The wsgi server mainly work between the django appilication and the web server. the wsgi parse the raw http request into a proper HttP request formet and then it pass it for the django handler.
+2. After hiting the urls by the WSGI server receive the request.then the wsgi server (Apache/Nginx) receive it and then pass it to the  Gunicorn , django development server and more.If the user want a static file and match with the path it directly retrieve the file(like image,data from the drive) and if want a django file then it pass to the gunicorn here the nginx work as a proxy server.The server mainly work between the django appilication and the web server.then gunicorn the wsgi parse the raw http request into a proper HttP request formet and then it pass it for the django handler.
 
 3. in django the request handler that store in the wsgi.py file and it contain the callble funbctions. So the hander in wsgi call function with two aggument.
      - environ : contain all the request data including headers,path, method, query, server info.
