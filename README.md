@@ -42,8 +42,12 @@ here have multiple point -
 
 6. In views check first with function or logic match with it, then run the business logic if need connect with the database after all the process and logic run the output context is ready to pass.\
 
-7. The view return the HTTP response and 
+7. The view return the HTTP response and send back the response to the response middleware the response can be multiple type like json ,html file etc
 
+8. Then the response take the response middileware.Before sending the response to the client middlewsre can do many thing - modify the response,add information,store cookie, store the log information and so on.
 
+9. after processing complete of the response middleware django send the http response to the wsgi server . the wsgu server convert the http response to user friendly raw html formet
+
+10. then the browser receive the response and render ir or show the raw data. in the processing if any error occurs it can return error value 
 
 
