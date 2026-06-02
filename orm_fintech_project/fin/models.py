@@ -18,6 +18,25 @@ class UserManager(models.Manager):
     
     def agents(self):
         return self.filter(role='agent')
+    
+    def create_user(self,username,password=None,**extrafield):
+        extrafield.setdefault('is_staff',False)
+        extrafield.setdefault('is_superuser',False)
+        return self._create_user(username,password,**extrafield)
+    
+    def create_superuser(self,username,password,**extrafield):
+        extrafield.setdefault('is_staff',True)
+        extrafield.setdefault('is_superuser',True)
+        extrafield.setdefault('role','admin')
+        return self._create_user(username,password,**extrafield)
+    
+    def _create_user(self,username,password,**extrafield):
+        if not username:
+            raise ValueError("Username set first")
+        user=self.model(username=username,**extrafield)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
 
 class AccountManager(models.Manager):
