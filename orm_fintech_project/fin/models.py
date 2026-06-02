@@ -102,19 +102,16 @@ class Account(models.Model):
 
     objects = AccountManager()
 
-    class Meta:
-        indexes = [
-            models.Index(fields=['account_number']),
-            models.Index(fields=['status']),
-            models.Index(fields=['account_type']),
-            models.Index(fields=['user','status']),
-        ]
-        constraints = [
-            models.CheckConstraint(check=Q(balance__gte=0), name='balance_non_negative'),
-        ]
-
-    def __str__(self):
-        return f"{self.account_number} - {self.status}"
+class Meta:
+    indexes = [
+        models.Index(fields=['account_number']),
+        models.Index(fields=['status']),
+        models.Index(fields=['account_type']),
+        models.Index(fields=['user', 'status']),
+    ]
+    constraints = [
+        models.CheckConstraint(condition=Q(balance__gte=0),name='balance_non_negative'),
+    ]
 
 
 
@@ -216,7 +213,7 @@ class Transaction(models.Model):
             models.Index(fields=['reference_id']),
         ]
         constraints = [
-            models.CheckConstraint(check=Q(amount__gt=0), name='positive_transaction_amount'),
+            models.CheckConstraint(condition=Q(amount__gt=0), name='positive_transaction_amount'),
         ]
 
     def __str__(self):
