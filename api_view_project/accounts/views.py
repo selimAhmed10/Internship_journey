@@ -87,3 +87,18 @@ class accountGenericView(GenericAPIView,CreateModelMixin,ListModelMixin,Retrieve
     def delete(self,request,pk):
         return self.destroy(request,pk=pk)
     
+
+# Benefits of ModelViewSet
+# Fastest and the easiest way to build full operations with minimum code
+# Automatically provides list,create,retrieve,update and delete operations
+# Works with routers(default and the simple routers) to generate URLs automatically
+# Easy to maintain because all provide by the drf 
+#Used to in productions because it easier to maintain 
+# Least flexible of the three approaches but most productive and clean
+# Best choice when custom logic or requirements are minimal and less 
+
+from rest_framework.viewsets import ModelViewSet
+
+class accountModelViewset(ModelViewSet):
+    queryset=Account.objects.all()
+    serializer_class=AccountSerializer
