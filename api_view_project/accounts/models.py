@@ -3,9 +3,9 @@ import uuid  #make the unique id number that nobody earlier create
 
 class Account(models.Model):
     account_type=[
-        ('Saving','saving'),
-        ('Current','current'),
-        ('student','student')
+        ('saving','Saving'),
+        ('current','Current'),
+        ('student','Student')
        
     ]
     
