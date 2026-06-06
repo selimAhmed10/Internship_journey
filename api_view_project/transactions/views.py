@@ -3,6 +3,7 @@ from .models import Transaction
 from rest_framework.response import Response
 from .serializers import TransactionSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework.decorators import action
 
 
 class TransactionAPIView(APIView):
@@ -77,3 +78,17 @@ from rest_framework.viewsets import ModelViewSet
 class TransactionModelViewSet(ModelViewSet):
     queryset=Transaction.objects.all()
     serializer_class=TransactionSerializer
+    
+    #Get the transaction status
+    @action(detail=True,methods=['get'])
+    def status(self,request,pk=None):
+       
+        transaction=self.get_object()
+        return Response({
+            'transaction_id':str(transaction.trans_id),
+            'status':transaction.status,
+            'amount':transaction.amount,
+            'type':transaction.transaction_type,
+            'created_at':transaction.created_at,
+            'account_number': transaction.account.account_number,
+        })
