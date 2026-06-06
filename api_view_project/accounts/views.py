@@ -3,6 +3,7 @@ from .models import Account
 from rest_framework.response import Response
 from .serializers import AccountSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework.decorators import action
 
 # Benefits of APIView
 #Full control over every request and response(can modify logic exactly as needed or want,no dependency have on buold drf shortcart)
@@ -102,3 +103,18 @@ from rest_framework.viewsets import ModelViewSet
 class accountModelViewset(ModelViewSet):
     queryset=Account.objects.all()
     serializer_class=AccountSerializer
+    
+
+
+    @action(detail=True,methods=['post'])
+    def freeze_account(self, request, pk=None):
+        account=self.get_object()
+
+        account.is_frozen=True
+        account.save()
+
+        return Response({
+            "message":"Account frozen successfully",
+            "account_number":account.account_number,
+            "is_frozen":account.is_frozen
+        })
