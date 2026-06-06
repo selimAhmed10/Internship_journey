@@ -92,3 +92,25 @@ class TransactionModelViewSet(ModelViewSet):
             'created_at':transaction.created_at,
             'account_number': transaction.account.account_number,
         })
+        
+    @action(detail=True,methods=['post'])
+    def reverse(self,request,pk=None):
+        transaction=self.get_object()
+
+    # create reversed transaction
+        reversed_transaction=Transaction.objects.create(
+            account=transaction.account,
+            amount=transaction.amount,
+            transaction_type='credit' if transaction.transaction_type== 'debit' else 'debit',
+            status='reversed'
+            )
+
+        # update the  original transaction
+        transaction.status ='reversed'
+        transaction.save()
+
+        return Response({
+            "message":"reversed successfully",
+            "original":str(transaction.trans_id),
+            "reversed":str(reversed_transaction.trans_id)
+        })
