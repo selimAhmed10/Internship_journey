@@ -7,8 +7,8 @@ router.register('accounts',accountModelViewset)
 
 urlpatterns=[
     # APIView
-    path('api/api/accounts/',AccountAPIView.as_view()),  #get all and craete
-    path('api/api/accounts/<uuid:pk>/',AccountAPIView.as_view()),  #all operations using the pk(id)
+    path('api/accounts/',AccountAPIView.as_view()),  #get all and craete
+    path('api/accounts/<uuid:pk>/',AccountAPIView.as_view()),  #all operations using the pk(id)
     
     #GenericAPIView with all Mixins
     path('api/generic/accounts/',accountGenericView.as_view()),                
