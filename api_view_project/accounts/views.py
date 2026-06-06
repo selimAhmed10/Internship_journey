@@ -50,4 +50,40 @@ class AccountAPIView(APIView):
         account = get_object_or_404(Account, pk=pk)
         account.delete()
         return Response({"message":"successfully deleted"})
-        
+    
+    
+    
+    
+# Benefits of GenericAPIView  and Mixins
+# Less code than APIView because CRUD operations come from built-in mixins(get,put,patch,delete etc)
+# No need to write repetitive logic for list, create, retrieve, update and delete
+# Here have build in queryset and serializer support makes the  code cleaner and easier to maintain and also make the operations
+# Good for standard CRUD APIs when some or partial customization is needed
+# Useful when APIView feels too manual but its do automatics with minimul code
+# its much more easier than the APIView 
+
+
+from rest_framework.generics import GenericAPIView
+from rest_framework.mixins import ListModelMixin,CreateModelMixin,DestroyModelMixin,RetrieveModelMixin,UpdateModelMixin     
+
+class accountGenericView(GenericAPIView,CreateModelMixin,ListModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin):
+    queryset=Account.objects.all()
+    serializer_class=AccountSerializer
+    
+    def get(self,request,pk=None):
+        if pk:
+            return self.retrieve(request,pk=pk)
+        return self.list(request)
+    
+    def post(self,request):
+        return self.create(request)
+    
+    def put(self,request,pk):
+        return self.update(request,pk=pk)
+    
+    def patch(self,request,pk):
+        return self.partial_update(request,pk=pk)
+    
+    def delete(self,request,pk):
+        return self.destroy(request,pk=pk)
+    
