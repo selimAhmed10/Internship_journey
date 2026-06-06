@@ -69,3 +69,11 @@ class TransactionGenericView(GenericAPIView,CreateModelMixin,ListModelMixin,Retr
 
     def delete(self,request,pk):
         return self.destroy(request,pk=pk)
+  
+  
+    
+from rest_framework.viewsets import ModelViewSet
+
+class TransactionModelViewSet(ModelViewSet):
+    queryset=Transaction.objects.all()
+    serializer_class=TransactionSerializer
