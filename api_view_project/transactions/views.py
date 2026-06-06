@@ -44,3 +44,28 @@ class TransactionAPIView(APIView):
         transaction.delete()
         return Response({"message": "successfully deleted"})
 
+
+
+from rest_framework.generics import GenericAPIView
+from rest_framework.mixins import ListModelMixin,CreateModelMixin,DestroyModelMixin,RetrieveModelMixin,UpdateModelMixin
+
+class TransactionGenericView(GenericAPIView,CreateModelMixin,ListModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin):
+    queryset=Transaction.objects.all()
+    serializer_class=TransactionSerializer
+
+    def get(self,request,pk=None):
+        if pk:
+            return self.retrieve(request,pk=pk)
+        return self.list(request)
+
+    def post(self,request):
+        return self.create(request)
+
+    def put(self,request,pk):
+        return self.update(request,pk=pk)
+
+    def patch(self,request,pk):
+        return self.partial_update(request,pk=pk)
+
+    def delete(self,request,pk):
+        return self.destroy(request,pk=pk)
