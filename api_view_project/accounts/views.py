@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from .models import Account
 from rest_framework.response import Response
-from .serializers import AccountSerializer
+from .serializers import AccountSerializer,AccountDetailSerializer,AccountListSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 
@@ -100,11 +100,18 @@ class accountGenericView(GenericAPIView,CreateModelMixin,ListModelMixin,Retrieve
 
 from rest_framework.viewsets import ModelViewSet
 
+
 class accountModelViewset(ModelViewSet):
     queryset=Account.objects.all()
     serializer_class=AccountSerializer
     
-
+    
+    def get_serializer_class(self):
+        if self.action=='list':
+            return AccountListSerializer
+        elif self.action=='retrieve':
+            return AccountDetailSerializer
+        return AccountSerializer
 
     @action(detail=True,methods=['post'])
     def freeze_account(self, request, pk=None):
