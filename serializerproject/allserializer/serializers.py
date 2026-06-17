@@ -194,6 +194,27 @@ class AccountCustomFieldSerializer(serializers.ModelSerializer):
     class Meta:
         model=Account
         fields ='__all__'
+        
+        
+
+class UserRegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields='__all__'
+        read_only_fields = ["uuid","created_at"]
+
+    def validate_email(self,value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("the email already exists.")
+        return value
+
+    def validate_phone(self,value):
+        if User.objects.filter(phone=value).exists():
+            raise serializers.ValidationError("already exists the phone number.")
+        return value
+
+    def create(self,validated_data):
+        return User.objects.create(**validated_data)
 
  
 
