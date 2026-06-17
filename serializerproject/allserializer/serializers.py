@@ -225,7 +225,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class AccountNestedSerializer(serializers.ModelSerializer):
-    user=UserSerializer(read_only=True)
+    user=UserSerializer()
     class Meta:
         model=Account
         fields='__all__'
@@ -236,3 +236,21 @@ class TransactionReadNestedSerializer(serializers.ModelSerializer):
     class Meta:
         model=Transaction
         fields='__all__'
+        
+
+
+class TransactionWriteSerializer(serializers.ModelSerializer):
+    account=AccountNestedSerializer()
+    class Meta:
+        model=Transaction
+        fields='__all__'
+        
+    def create(self,validated_data):
+        account_data=validated_data.pop("account")
+        user_data=account_data.pop("user")
+        user=User.objects.create(**user_data)
+        account=Account.objects.create(user=user,**account_data)
+        transaction=Transaction.objects.create(account=account,**validated_data)
+        return transaction
+        
+    
