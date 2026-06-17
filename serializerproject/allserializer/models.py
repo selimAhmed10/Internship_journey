@@ -3,11 +3,8 @@ import uuid
 from django.db import models
 from django.db.models import Q,CheckConstraint
 
-
-
-
 class User(models.Model):
-    id=models.models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     name=models.CharField(max_length=50)
     email=models.EmailField(unique=True)
     phone=models.CharField(max_length=14,unique=True)
@@ -15,8 +12,8 @@ class User(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        ordering=["-craeted_at"]
-        index=[
+        ordering=["-created_at"]
+        indexes=[
             models.Index(fields=["created_at"]),
         ]
         
@@ -35,18 +32,18 @@ class Account(models.Model):
         ('Student','student'),
     )
 
-    id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=True)
+    id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    account_number=models.models.CharField(max_length=50,unique=True)
-    account_type=models.CharField(choice=account_ty,default='savings',max_length=20)
+    account_number=models.CharField(max_length=50,unique=True)
+    account_type=models.CharField(choices=account_ty,default='savings',max_length=20)
     balance=models.DecimalField(max_digits=15,decimal_places=2,default=0)
     is_active=models.BooleanField(default=True)
-    created_at=models.models.DateTimeField(auto_now_add=True)
+    created_at=models.DateTimeField(auto_now_add=True)
 
 
     class Meta:
         ordering=["-created_at"]
-        indexs=[
+        indexes=[
             models.Index(fields=["account_number"]),
             models.Index(fields=["user"]),
             models.Index(fields=["is_active"]),
@@ -80,8 +77,8 @@ class Transaction(models.Model):
     )
     
     id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
-    account=models.ForeignKey(Account,on_delete=models.CASCADE,unique=True)
-    amount=models.DecimalField(max_digits=6,decimal_places=2,default=0)
+    account=models.ForeignKey(Account,on_delete=models.CASCADE)
+    amount=models.DecimalField(max_digits=12,decimal_places=2,default=0)
     transaction_type=models.CharField(choices=trans_type,default='deposit',max_length=20)
     transaction_status=models.CharField(choices=trans_sta,default='pending',max_length=20)
     note=models.CharField(max_length=100,blank=True,null=True)
