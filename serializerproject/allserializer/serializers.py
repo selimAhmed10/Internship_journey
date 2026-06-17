@@ -99,7 +99,27 @@ class AccountModelSerializer(serializers.ModelSerializer):
         return attrs
     
 
+
+#ListSerializer -- 
+#use it for creating the bulk amount of data at a time 
+#its automatically run on the backgroun when write serializer.data , many=True 
+#Its works on the model seriaizer -- it can works easily but for create the bulk amount the data need logic 
+#its mainly work for need to see list of data and create bulk amount of data at a time 
     
+class transactionListSerializer(serializers.ListSerializer):
+    def validate(self,data):
+        if not data:
+            raise serializers.ValidationError("The list cant be empty")
+        total=sum(item.get("amount",0) for item in data)
+        if total>100000:
+            raise serializers.ValidationError("total amount mainly exceed the limit for creating data at a time")
+        return data
+
+
+    def create(self,validated_data):
+        transaction=[Transaction(**item) for item in validated_data]    
+        return Transaction.objects.bulk_create(transaction)
+        
     
 
         
