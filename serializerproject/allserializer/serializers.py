@@ -231,3 +231,8 @@ class AccountNestedSerializer(serializers.ModelSerializer):
         fields='__all__'
 
 
+class TransactionReadNestedSerializer(serializers.ModelSerializer):
+    account=AccountNestedSerializer(read_only=True)
+    class Meta:
+        model=Transaction
+        fields='__all__'
