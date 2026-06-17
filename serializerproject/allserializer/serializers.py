@@ -224,3 +224,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 
+class AccountNestedSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model=Account
+        fields='__all__'
+
+
