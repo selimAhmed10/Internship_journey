@@ -253,4 +253,24 @@ class TransactionWriteSerializer(serializers.ModelSerializer):
         transaction=Transaction.objects.create(account=account,**validated_data)
         return transaction
         
-    
+        
+    def update(self,instance,validated_data):
+        account_data=validated_data.pop("account",None) # pop the account data or if no none
+        if account_data:
+            user_data=account_data.pop("user",None) #from account data pop the user data 
+            account=instance.account   #find the request user or those requesting 
+
+        if user_data:    
+            user=account.user  #if user data have find the user
+            for key,value in user_data.items():  # user data have info in key: value -- 
+                setattr(user,key,value)   #setattr ( use for set the value) 
+            user.save()
+
+        for key,value in account_data.items():   #then store the account info
+            setattr(account,key,value)
+        account.save()
+
+        for key,value in validated_data.items():
+            setattr(instance,key,value)
+        instance.save()
+        return instance
