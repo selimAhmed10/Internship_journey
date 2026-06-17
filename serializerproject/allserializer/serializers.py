@@ -119,7 +119,26 @@ class transactionListSerializer(serializers.ListSerializer):
     def create(self,validated_data):
         transaction=[Transaction(**item) for item in validated_data]    
         return Transaction.objects.bulk_create(transaction)
-        
+    
+
+
+#Hyperlink Serializer 
+# Hyperlink model serializer use url instead of the primary key for object representation 
+# Its generates a url for each user object
+# view  name must be match the urls pattern in the urls.py 
+# lookup_field="uuid" tells the url use uuid (not the normal id)
+# Useful for rest apis that follow HATEOAS principles-hypermedia as the engine of apppilication state , in the link store not only the data also store the additonal informatio
+
+
+
+class UserHyperlinkSerializer(serializers.HyperlinkedModelSerializer):
+    url=serializers.HyperlinkedIdentityField(view_name="user-detail",lookup_field="uuid")
+   
+    class Meta:
+        model=User
+        fields=["url","uuid","name","email","phone","nid","created_at"]
+        read_only_fields=["uuid","created_at"]
+    
     
 
         
