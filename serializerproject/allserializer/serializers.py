@@ -1,5 +1,6 @@
 from .models import User,Account,Transaction
 from rest_framework import serializers
+from .fields import MoneyField,MaskedAccountField 
 
 
 # 1. Basic serializer 
@@ -185,6 +186,14 @@ class AccountComputedSerializer(serializers.ModelSerializer):
             return last_transaction.created_at
 
         return None
+
+
+class AccountCustomFieldSerializer(serializers.ModelSerializer):
+    balance=MoneyField()
+    account_number=MaskedAccountField()
+    class Meta:
+        model=Account
+        fields ='__all__'
 
  
 
