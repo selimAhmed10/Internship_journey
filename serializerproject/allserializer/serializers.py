@@ -139,16 +139,29 @@ class UserHyperlinkSerializer(serializers.HyperlinkedModelSerializer):
         fields=["url","uuid","name","email","phone","nid","created_at"]
         read_only_fields=["uuid","created_at"]
     
+
+
+
+#Read the trasaction info  -- it is mainly use for the report , logs and other here all field marked as read ony
+#so the user can only see this cant modify this 
+class TrasactionReadOnlySerializer(serializers.ModelSerializer):
+    id=serializers.UUIDField(read_only=True)
+    account=serializers.PrimaryKeyRelatedField(read_only=True)
+    amount=serializers.DecimalField(max_digits=12,decimal_places=2,read_only=True)
+    transaction_type=serializers.CharField(read_only=True)
+    transaction_status=serializers.CharField(read_only=True)
+    note=serializers.CharField(read_only=True)
+    created_at=serializers.DateTimeField(read_only=True)
+    
+    class Meta:
+        model=Transaction
+        fields=["id","account",'amount','transaction_type','transaction_status','note','created_at']
+    
     
 
-        
-
-
-
-
-
-
     
-    
-    
-    
+ 
+
+
+
+      
