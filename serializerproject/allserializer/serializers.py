@@ -84,8 +84,8 @@ class AccountModelSerializer(serializers.ModelSerializer):
     
     
     def validate_account_number(self,value):
-        if len(value)<10:
-            raise serializers.ValidationError("account number must be more than 10 digit")
+        if len(value)!=20:
+            raise serializers.ValidationError("Account number must be 20 character")
         return value 
     
 
