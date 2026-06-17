@@ -18,3 +18,13 @@ class MoneyField(serializers.Field):
         if usd_balance<=0:
             raise serializers.ValidationError("the amount must greater than zero or equal")
         return usd_balance
+    
+    
+
+class MaskedAccountField(serializers.Field):
+    
+    def to_representation(self, value):
+        return "*" * 16 + value[-4:]
+
+    def to_internal_value(self, data):
+        return data
