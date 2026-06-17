@@ -157,9 +157,35 @@ class TrasactionReadOnlySerializer(serializers.ModelSerializer):
         model=Transaction
         fields=["id","account",'amount','transaction_type','transaction_status','note','created_at']
     
-    
 
+
+
+#fieldMethod for creating new object thats not on the model 
+#available balance ,Total trasation done by this account and the last active transaction
+
+class AccountComputedSerializer(serializers.ModelSerializer):
+    available_balance=serializers.SerializerMethodField()
+    trasaction_count=serializers.SerializerMethodField()
+    last_active=serializers.SerializerMethodField()
     
+    class Meta:
+        model=Account
+        fields='__all__'
+        
+    
+    def get_available_balance(self,obj):
+        return obj.balance
+    
+    def get_trasaction_count(self,obj):
+        return obj.transactions.count()   
+
+    def get_last_active(self,obj):
+        last_transaction=(obj.transactions.order_by("-created_at").first())
+        if last_transaction:
+            return last_transaction.created_at
+
+        return None
+
  
 
 
