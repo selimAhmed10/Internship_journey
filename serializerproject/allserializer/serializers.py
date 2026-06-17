@@ -53,8 +53,62 @@ class BasicUserSerializer(serializers.Serializer):
     
     
     
+
+#Model Serializer 
+# ModelSerializer is closely connected with Django models and automatically maps model fields no need to define 
+#it is connect to the django model and do the operation using it to read,write and all crud operation and store them in the database
+# It reduces boilerplate code by creating the fiel from the model 
+# It can automatically handle all crud operation no need to write manually
+# It supports meta class where can define model,fields,read_only_fields,write and extra_kwargs
+# it is mainly use for the crud operation because of its feature 
+    
+class AccountModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Account
+        fields= '__all__'
+        read_only_fields=[
+            'id','created_at'   # only can read this field 
+        ]
+        
+        extra_kwargs={           # can update or create data without this field if in the model it is mendatory field
+            "balance":{"required":False},       
+            "is_active":{"required":False,"default":True},
+            
+        }
+
+        
+    def validate_balance(self,value):
+        if value<0:
+            raise serializers.ValidationError("the balance cant negative")
+        return value
     
     
+    def validate_account_number(self,value):
+        if len(value)<10:
+            raise serializers.ValidationError("account number must be more than 10 digit")
+        return value 
+    
+
+     #object level validation for checking is it student account and if it cant store more than 10000 
+    def  validate(self,attrs):
+        account_type=attrs.get("account_type",self.instance.account_type if self.instance else None)
+        balance=attrs.get("balance",self.instance.balance if self.instance else None)
+        
+        if account_type=="Student" and balance >10000:
+            raise serializers.ValidationError("the student account cant store more than 10000")
+        return attrs
+    
+
+    
+    
+
+        
+
+
+
+
+
+
     
     
     
