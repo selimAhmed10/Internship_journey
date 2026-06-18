@@ -4,7 +4,7 @@ from rest_framework import status
 from .models import User,Account,Transaction
 from .serializers import BasicUserSerializer,AccountModelSerializer,UserHyperlinkSerializer,TrasactionReadOnlySerializer
 from django.shortcuts import get_object_or_404
-from .serializers import AccountComputedSerializer,AccountCustomFieldSerializer
+from .serializers import AccountComputedSerializer,AccountCustomFieldSerializer,UserRegistrationSerializer
 
 
 class BasicUserAPIView(APIView):
@@ -104,7 +104,7 @@ class ReadOnlyTransaction(APIView):
 class AccountComputedDetails(APIView):
     def get(self,request,pk):
         account=get_object_or_404(Account,pk=pk)
-        serializer=AccountCustomFieldSerializer(account)
+        serializer=AccountComputedSerializer(account)
         return Response(serializer.data)
     
     
@@ -118,31 +118,15 @@ class AccountMoneyMaskedApiView(APIView):
         serializer=AccountCustomFieldSerializer(accounts,many=True)
         return Response(serializer.data)
             
-    
-    
-    
+
+class UserRegistrationAPIView(APIView):
+    def post(self,request):
+        serializer=UserRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
 
 
 
-    
-class AccountListAPIView(APIView):
-
-    def get(self, request):
-
-        accounts = Account.objects.all()
-
-        serializer = AccountCustomFieldSerializer(
-            accounts,
-            many=True
-        )
-
-        return Response(
-            serializer.data,
-            status=status.HTTP_200_OK
-        )
-        
-
-    
-    
-    
 
