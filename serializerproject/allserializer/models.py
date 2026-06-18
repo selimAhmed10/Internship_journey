@@ -51,7 +51,7 @@ class Account(models.Model):
 
         constraints=[
             CheckConstraint(
-                condition=Q(balance__gte=0),
+                check=Q(balance__gte=0),
                 name="Account_balance_cant_negetive"
             )
         ]
@@ -97,7 +97,7 @@ class Transaction(models.Model):
 
         constraints = [
             CheckConstraint(
-                condition=Q(amount__gte=0),
+                check=Q(amount__gte=0),
                 name="transaction_amount_must_positive"
             )
         ]
