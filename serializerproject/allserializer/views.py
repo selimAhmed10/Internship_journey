@@ -5,7 +5,7 @@ from .models import User,Account,Transaction
 from .serializers import BasicUserSerializer,AccountModelSerializer,UserHyperlinkSerializer,TrasactionReadOnlySerializer
 from django.shortcuts import get_object_or_404
 from .serializers import AccountComputedSerializer,AccountCustomFieldSerializer,UserRegistrationSerializer
-from .serializers import TransactionReadNestedSerializer
+from .serializers import TransactionReadNestedSerializer,TransactionWriteSerializer
 
 class BasicUserAPIView(APIView):
     def get(self,request):
@@ -137,4 +137,21 @@ class TransactionNastedReadAPIView(APIView):
         transactions=Transaction.objects.all()
         serializer=TransactionReadNestedSerializer(transactions,many=True)
         return Response(serializer.data)
+    
+    
+class TransactionWriteNastedAPIView(APIView):
+    def post(self,request):
+        serializer=TransactionWriteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    
+    def patch(self,request,pk):
+        transaction=get_object_or_404(Transaction,pk=pk)
+        serializer=TransactionWriteSerializer(transaction,data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)       
         
