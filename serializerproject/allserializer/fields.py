@@ -5,7 +5,7 @@ class MoneyField(serializers.Field):
     
     def to_representation(self, value):
         bdt_balance=float(value)*self.exchange_rate
-        return f"{bdt_balance:.2} Taka " 
+        return f"{bdt_balance:.2f} Taka " 
     
     
     def to_internal_value(self, data):
@@ -23,8 +23,5 @@ class MoneyField(serializers.Field):
 
 class MaskedAccountField(serializers.Field):
     
-    def to_representation(self, value):
-        return "*" * 16 + value[-4:]
-
-    def to_internal_value(self, data):
-        return data
+    def to_representation(self,value):
+        return "*" * 16 + str(value)[-4:]
