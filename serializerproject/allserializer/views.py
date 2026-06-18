@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User,Account,Transaction
-from .serializers import BasicUserSerializer,AccountModelSerializer
+from .serializers import BasicUserSerializer,AccountModelSerializer,UserHyperlinkSerializer
 from django.shortcuts import get_object_or_404
 
 
@@ -43,7 +43,7 @@ class AccountModelSerializerAPIView(APIView):
     
     
     def post(self,request):
-        serializer=AccountModelSerializer(data=request.data)
+        serializer=AccountModelSerializer(data=request.data)  # if here i use the many=true it will automatically craete the bulk amount of the data and in get use the many=True it will show list of many in background it will run the ListSerializer
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status=status.HTTP_201_CREATED)
@@ -70,3 +70,23 @@ class AccountModelSerializerAPIView(APIView):
         account=get_object_or_404(Account,pk=pk)
         account.delete()
         return Response({"message":"deleted successfully"})
+    
+    
+
+class UserListCreateAPIView(APIView):
+    def get(self,request):
+        users=User.objects.all()
+        serializer=UserHyperlinkSerializer(users,many=True,context={'request':request})   #context help to create the full url using the info of the user 
+        return Response(serializer.data)
+
+    def post(self,request):
+        serializer=UserHyperlinkSerializer(data=request.data,context={'request':request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    
+    
+    
+
