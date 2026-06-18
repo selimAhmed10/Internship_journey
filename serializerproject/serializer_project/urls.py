@@ -19,5 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('allserializer/',include('urls.py')),
+    path('api/', include('allserializer.urls')),  
 ]
