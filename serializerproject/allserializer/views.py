@@ -4,6 +4,7 @@ from rest_framework import status
 from .models import User,Account,Transaction
 from .serializers import BasicUserSerializer,AccountModelSerializer,UserHyperlinkSerializer,TrasactionReadOnlySerializer
 from django.shortcuts import get_object_or_404
+from .serializers import AccountComputedSerializer
 
 
 class BasicUserAPIView(APIView):
@@ -98,6 +99,19 @@ class ReadOnlyTransaction(APIView):
         transactions=Transaction.objects.all()
         serializer=TrasactionReadOnlySerializer(transactions,many=True)
         return Response(serializer.data)
+    
+    
+    
+    
+    
+    
+    
+class AccountComputedDetails(APIView):
+    def get(self,request,pk):
+        account=get_object_or_404(Account,pk=pk)
+        serializer=AccountComputedDetails(account)
+        return Response(serializer.data)
+        
 
     
     
