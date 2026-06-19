@@ -198,6 +198,34 @@ Django rest framework provides multiple serializer types and each type is design
 **Base Url:** http://127.0.0.1:8000/api/
 
 
+## All endpoints
+
+| # | Method | Endpoint | Serializer | Description |
+|---|--------|----------|------------|-------------|
+| 1 | GET | `/api/user/` | BasicUserSerializer | List all users |
+| 2 | POST | `/api/user/` | BasicUserSerializer | Create user |
+| 3 | GET | `/api/user/{uuid}/` | BasicUserSerializer | Get user by UUID |
+| 4 | PUT | `/api/user/{uuid}/` | BasicUserSerializer | Update user |
+| 5 | GET | `/api/account/` | AccountModelSerializer | List all accounts |
+| 6 | POST | `/api/account/` | AccountModelSerializer | Create account |
+| 7 | GET | `/api/account/{uuid}/` | AccountModelSerializer | Get account by UUID |
+| 8 | PUT | `/api/account/{uuid}/` | AccountModelSerializer | Update account |
+| 9 | PATCH | `/api/account/{uuid}/` | AccountModelSerializer | Partial update account |
+| 10 | DELETE | `/api/account/{uuid}/` | AccountModelSerializer | Delete account |
+| 11 | GET | `/api/hyper/user/` | UserHyperlinkSerializer | List users with hyperlinks |
+| 12 | POST | `/api/hyper/user/` | UserHyperlinkSerializer | Create user with hyperlink |
+| 13 | GET | `/api/users/{uuid}/` | UserHyperlinkSerializer | Get user with hyperlink |
+| 14 | GET | `/api/readonly/transaction/` | TrasactionReadOnlySerializer | List transactions (read-only) |
+| 15 | GET | `/api/readonly/transaction/{uuid}/` | TrasactionReadOnlySerializer | Get transaction (read-only) |
+| 16 | GET | `/api/computed/account/{uuid}/` | AccountComputedSerializer | Get account with computed fields |
+| 17 | GET | `/api/custom/account/` | AccountCustomFieldSerializer | List accounts with custom fields |
+| 18 | GET | `/api/custom/account/{uuid}/` | AccountCustomFieldSerializer | Get account with custom fields |
+| 19 | POST | `/api/register/user/` | UserRegistrationSerializer | Register user with password |
+| 20 | GET | `/api/nested/read/transaction/` | TransactionReadNestedSerializer | List transactions with nested data |
+| 21 | GET | `/api/nested/read/transaction/{uuid}/` | TransactionReadNestedSerializer | Get transaction with nested data |
+| 22 | POST | `/api/nested/write/transaction/` | TransactionWriteSerializer | Create with nested data |
+| 23 | PATCH | `/api/nested/write/transaction/{uuid}/` | TransactionWriteSerializer | Update with nested data |
+
 ---
 
 ## 1. Basic Serializer - User Endpoints
