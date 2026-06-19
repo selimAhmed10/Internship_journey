@@ -1,4 +1,4 @@
-# Choosing the Right Serializer Type in Django REST Framework (Comparison)
+# Choosing the right serializer Type and test
 
 Django rest framework provides multiple serializer types and each type is designed for a specific level of control,data structure and use case of each.Choosing the correct serializer depends on whether the data is model based, requires custom logic,handles bulk operations or needs nested representation. So sometimes need to use multiple use as per my want.
 
