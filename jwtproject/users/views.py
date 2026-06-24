@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import status
 from .serializers import UserRegisterSerializer,UserLoginSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 
 class UserResgisterAPIView(APIView):
     
@@ -65,4 +67,36 @@ class DashboardAPIView(APIView):   # need to request using the access token then
                 }
             }
         },status=status.HTTP_200_OK)
+        
+
+class TokenRefreshAPIView(APIView):
+    permission_classes=[AllowAny]
+    def post(self,request):
+        old_refresh_token=request.data.get('refresh')  # receive the refresh token as old 
+        if not old_refresh_token:  #check refresh have or not 
+            return Response({
+                "status":"error",
+                "message":"Refresh token is need not here"
+            },status=status.HTTP_400_BAD_REQUEST)
      
+        try:
+            refresh=RefreshToken(old_refresh_token)  #from the old fresh make a new refresh token 
+            user_id=refresh.payload.get('user_id') # get the user 
+            new_access_token=refresh.access_token  #create new access token by just calling 
+            new_refresh_token=str(refresh)   # token rotation ( true in the settings)
+            #after done make the old in blacklist  after rotation blacklist true in settings 
+            return Response({
+                "status":"success",
+                "message":"Token refreshed successfully",
+                "data":{
+                    "user_id":user_id,
+                    "access":str(new_access_token),
+                    "refresh":new_refresh_token,
+                }
+            },status=status.HTTP_200_OK)
+            
+        except TokenError as e:
+            return Response({
+                "status":"error",
+                "message":f"Invalid refresh token:{str(e)}"
+            },status=status.HTTP_401_UNAUTHORIZED)
