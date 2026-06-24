@@ -214,3 +214,20 @@ class RevokeSessionAPIView(APIView):
                 "status":"error",
                 "message":"Session not found or already revoked"
             },status=status.HTTP_404_NOT_FOUND)
+
+
+class RevokeAllSessionsAPIView(APIView):
+    permission_classes=[IsAuthenticated]
+    def post(self,request):
+        sessions=UserSession.objects.filter(user=request.user,is_active=True)
+        count=sessions.count()
+        for session in sessions:
+            session.revoke()
+            try:
+                refresh=RefreshToken(session.refresh_token_jti,verify=False)
+                refresh.blacklist()
+            except:pass
+        return Response({
+            "status":"success",
+            "message":f"All {count} session revoked"
+        },status=status.HTTP_200_OK)
