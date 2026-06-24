@@ -1,6 +1,27 @@
 import uuid
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,BaseUserManager
+
+
+
+class UserManager(BaseUserManager):
+    def create_user(self,email,password=None,**extra_fields):
+        if not email:
+            raise ValueError("the email is required for register")
+        email=self.normalize_email(email)   # make the email normalize by doint it lower case 
+        if 'username' not in extra_fields or not extra_fields['username']:extra_fields['username']=email   # if the field dont have the username take email as the user name for it 
+        user=self.model(email=email,**extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self,email,password=None,**extra_fields):
+        extra_fields.setdefault("is_staff",True)
+        extra_fields.setdefault("is_superuser",True)
+        extra_fields.setdefault("is_active",True)
+        extra_fields.setdefault("role","admin")
+        return self.create_user(email,password,**extra_fields)
+
 
 class User(AbstractUser):
     ROLE_CHOICES=(
@@ -15,6 +36,7 @@ class User(AbstractUser):
     phone=models.CharField(max_length=14,unique=True,db_index=True)
     address=models.CharField(max_length=255,blank=True,null=True)
     role=models.CharField(max_length=20,choices=ROLE_CHOICES,default="customer",db_index=True)
+    objects=UserManager()
     USERNAME_FIELD="email"   #set username as email for login using the email field
     REQUIRED_FIELDS=[]   
     
