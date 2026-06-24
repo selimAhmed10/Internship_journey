@@ -46,4 +46,23 @@ class UserLoginAPIView(APIView):
                 }
             },status=status.HTTP_200_OK)
         return Response(serializer.errors)
+    
+    
+class DashboardAPIView(APIView):   # need to request using the access token then it extract then do check with user info,expire,blacklist or not after all return the user info it okey 
+    permission_classes=[IsAuthenticated]  # only authenticate user can access this page using their access token 
+
+    def get(self,request):
+        user=request.user  # trac witch user trying to access and find out 
+        return Response({
+            "status":"success",
+            "message":f"Welcome {user.email}",
+            "data":{
+                "user":{
+                    "id":str(user.id),
+                    "email":user.email,
+                    "name":user.name,
+                    "role":user.role
+                }
+            }
+        },status=status.HTTP_200_OK)
      
