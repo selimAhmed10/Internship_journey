@@ -193,3 +193,24 @@ class ActiveSessionAPIView(APIView):
                 "sessions": serializer.data
             }
         },status=status.HTTP_200_OK)
+
+
+class RevokeSessionAPIView(APIView):
+    permission_classes=[IsAuthenticated]
+    def post(self,request,session_id):
+        try:
+            session=UserSession.objects.get(session_id=session_id,user=request.user,is_active=True)
+            session.revoke()
+            try:
+                refresh=RefreshToken(session.refresh_token_jti,verify=False)#do not need to check singanature expire date and other for the the revoke no need to check it thats why use false 
+                refresh.blacklist()  # add on the blacklist 
+            except:pass
+            return Response({
+                "status":"success",
+                "message":"Session successfully revocked"
+            },status=status.HTTP_200_OK)
+        except UserSession.DoesNotExist:
+            return Response({
+                "status":"error",
+                "message":"Session not found or already revoked"
+            },status=status.HTTP_404_NOT_FOUND)
