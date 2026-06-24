@@ -6,6 +6,41 @@ from .serializers import UserRegisterSerializer,UserLoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
+
+def get_session_info(request):   #get the user session information ip,browser,device 
+    x_forward_for=request.META.get('HTTP_X_FORWARD_FOR')
+    if x_forward_for:
+        ip=x_forward_for.split(',')[0].strip()
+    else:
+        ip=request.META.get('REMOTE_ADDR','unknown_ip')
+    user_agent= request.META.get('HTTP_USER_AGENT','Unknown Browser')
+    if 'Windows' in user_agent:
+        device='Windows PC'
+    elif 'Macintosh' in user_agent:
+        device='Mac'
+    elif 'iPhone' in user_agent:
+        device='iPhone'
+    elif 'Android' in user_agent:
+        device='Android Phone'
+    elif 'iPad' in user_agent:
+        device='iPad'
+    else:
+        device='Unknown Device'
+
+    if 'Chrome' in user_agent and 'Edg' not in user_agent:
+        browser='Chrome'
+    elif 'Firefox' in user_agent:
+        browser='Firefox'
+    elif 'Safari' in user_agent and 'Chrome' not in user_agent:
+        browser='Safari'
+    elif 'Edg' in user_agent:
+        browser='Edge'
+    else:
+        browser='Unknown Browser'
+    
+    return {'ip':ip,'user_agent':user_agent,'device':device,'browser':browser}
+
+
 class UserResgisterAPIView(APIView):
     
     permission_classes=[AllowAny]  # anyone can do login 
