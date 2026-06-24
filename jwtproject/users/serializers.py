@@ -30,16 +30,21 @@ class UserLoginSerializer(serializers.Serializer):
         email=attrs.get('email')
         password=attrs.get('password')
         user=get_object_or_404(User,email__iexact=email)
-        
         user=authenticate(email=email,password=password)
         if not user:
             raise serializers.ValidationError("Invalid password")
         
         refresh=RefreshToken.for_user(user)
+        access_token=refresh.access_token
         return {
             'user':user,
             'email':user.email,
             'role':user.role,
-            'access':str(refresh.access_token),
+            'access':str(access_token),
             'refresh':str(refresh),
+            'access_jti':access_token.payload.get('jti'),
+            'refresh_jti':refresh.payload.get('jti'),
         }
+        
+        
+    
