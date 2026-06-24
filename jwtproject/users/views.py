@@ -100,3 +100,30 @@ class TokenRefreshAPIView(APIView):
                 "status":"error",
                 "message":f"Invalid refresh token:{str(e)}"
             },status=status.HTTP_401_UNAUTHORIZED)
+
+
+
+
+class LogOutAPIView(APIView):
+    permission_classes=[IsAuthenticated]
+    def post(self,request):
+        refresh_token=request.data.get('refresh')
+        if not refresh_token:  #check refresh have or not 
+            return Response({
+                "status":"error",
+                "message":"Refresh token is need not here"
+            },status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            refresh=RefreshToken(refresh_token)   # make it python object to check everything , user check,expire and others
+            refresh.blacklist()  # then block the refresh because its timeline huge 
+            return Response({
+                "status":"success",
+                "message":"Log out out successfully"
+            }, status=status.HTTP_200_OK)
+            
+        except TokenError as e:
+            return Response({
+                "status":"error",
+                "message":f"Invalid refresh token:{str(e)}"
+            }, status=status.HTTP_400_BAD_REQUEST)
