@@ -1,3 +1,5 @@
+from datetime import timezone
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny,IsAuthenticated
@@ -5,6 +7,7 @@ from rest_framework import status
 from .serializers import UserRegisterSerializer,UserLoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
+from .models import UserSession
 
 
 def get_session_info(request):   #get the user session information ip,browser,device 
@@ -68,7 +71,21 @@ class UserLoginAPIView(APIView):
     def post(self,request):
         serializer=UserLoginSerializer(data=request.data)
         if serializer.is_valid():
-            data=serializer.validated_data 
+            data=serializer.validated_data
+            user=data['user']   #from the data find the user
+            session_info=get_session_info(request)#call get function to get the info of device,ip,browser,useragents
+            session=UserSession.objects.create(  #create the sessin using the login info
+                user=user,
+                access_token_jti=data['access_jti'],      
+                refresh_token_jti=data['refresh_jti'], 
+                device_name=session_info['device'],
+                browser_name=session_info['browser'],
+                ip_address=session_info['ip'],
+                user_agent=session_info['user_agent'],
+                expires_at=timezone.now()+timezone.timedelta(days=7),
+                is_active=True
+            )
+
             return Response({
                 "status":"success",
                 "message":"User login successfull",
@@ -79,7 +96,8 @@ class UserLoginAPIView(APIView):
                         "role":data["user"].role
                     },
                     "access":data["access"],  # access and refrsh token create in the serializer class here just access and return it to the user 
-                    "refresh":data["refresh"]
+                    "refresh":data["refresh"],
+                    "session_id":str(session.session_id)  #pass the sesssion id 
                 }
             },status=status.HTTP_200_OK)
         return Response(serializer.errors)
