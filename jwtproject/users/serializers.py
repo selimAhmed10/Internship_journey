@@ -1,4 +1,4 @@
-from .models import User
+from .models import User,UserSession
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
@@ -47,4 +47,19 @@ class UserLoginSerializer(serializers.Serializer):
         }
         
         
-    
+class SessionSerializer(serializers.ModelSerializer):
+    user_email=serializers.EmailField(source='user.email',read_only=True)
+    user_role=serializers.CharField(source='user.role',read_only=True)
+    class Meta:
+        model=UserSession
+        fields='__all__'
+        read_only_fields=['session_id','login_time','last_activity','expires_at','is_active','is_blacklisted']
+
+
+
+
+
+
+        
+        
+        
