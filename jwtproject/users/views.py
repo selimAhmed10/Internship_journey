@@ -1,10 +1,9 @@
 from datetime import timezone
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import status
-from .serializers import UserRegisterSerializer,UserLoginSerializer
+from .serializers import UserRegisterSerializer,UserLoginSerializer,SessionSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from .models import UserSession
@@ -180,3 +179,17 @@ class LogOutAPIView(APIView):
                 "status":"error",
                 "message":f"Invalid refresh token:{str(e)}"
             }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ActiveSessionAPIView(APIView):
+    permission_classes=[IsAuthenticated]
+    def get(self,request):
+        session=UserSession.objects.filter(user=request.user,is_active=True).order_by('-login_time')
+        serializer=SessionSerializer(session,many=True)
+        return Response({
+            "status":"success",
+            "data": {
+                "total":session.count(),
+                "sessions": serializer.data
+            }
+        },status=status.HTTP_200_OK)
