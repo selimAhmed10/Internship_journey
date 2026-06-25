@@ -7,6 +7,7 @@ from .serializers import UserRegisterSerializer,UserLoginSerializer,SessionSeria
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from .models import UserSession
+from django.utils import timezone
 
 
 def get_session_info(request):   #get the user session information ip,browser,device 
@@ -114,7 +115,6 @@ class DashboardAPIView(APIView):   # need to request using the access token then
                 "user":{
                     "id":str(user.id),
                     "email":user.email,
-                    "name":user.name,
                     "role":user.role
                 }
             }
