@@ -168,6 +168,15 @@ class LogOutAPIView(APIView):
         
         try:
             refresh=RefreshToken(refresh_token)   # make it python object to check everything , user check,expire and others
+            jti=refresh.payload.get('jti')   #find the jti for the user fo revoke the session info also
+            try:
+                session=UserSession.objects.get(   #find the session to revoke from the session 
+                    user=request.user,
+                    refresh_token_jti=jti,
+                    is_active=True
+                )
+                session.revoke() 
+            except UserSession.DoesNotExist:pass
             refresh.blacklist()  # then block the refresh because its timeline huge 
             return Response({
                 "status":"success",
