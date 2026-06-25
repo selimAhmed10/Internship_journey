@@ -1,0 +1,1878 @@
+{
+	"info": {
+		"_postman_id": "443e1364-2816-46ba-a51a-101f0e4d78fd",
+		"name": "jwtproject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "55448483",
+		"_collection_link": "https://selim-ahmed-cse-2762200.postman.co/workspace/Md.-Selim-Ahmed-(223014188)'s-W~05d1af4b-8c39-41a2-80fc-47168a1b64e8/collection/55448483-443e1364-2816-46ba-a51a-101f0e4d78fd?action=share&source=collection_link&creator=55448483"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"selim304218@gmail.com\",\n    \"password\": \"selim304218\",\n    \"phone\": \"01612195390\",\n    \"address\": \"Dhaka,Bangladesh\",\n    \"role\": \"customer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000//api/register/"
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"selim304218@gmail.com\",\n    \"password\": \"selim304218\",\n    \"phone\": \"01612195390\",\n    \"address\": \"Dhaka,Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000//api/register/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 03:58:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "212"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User successfully created\",\n    \"data\": {\n        \"id\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\",\n        \"email\": \"selim304218@gmail.com\",\n        \"phone\": \"01612195390\",\n        \"address\": \"Dhaka,Bangladesh\",\n        \"role\": \"customer\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "register error for same email and phone",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "register error for same email and phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"selim304218@gmail.com\",\n    \"password\": \"selim304218\",\n    \"phone\": \"01612195390\",\n    \"address\": \"Dhaka,Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000//api/register/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 04:01:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": [\n        \"user with this email already exists.\"\n    ],\n    \"phone\": [\n        \"user with this phone already exists.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"test12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login/"
+			},
+			"response": [
+				{
+					"name": "successsful_login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"test123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:16:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "795"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User login successfull\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"f2cc08c6-deb8-48c5-8c89-3582766586bc\",\n            \"email\": \"test@example.com\",\n            \"role\": \"customer\"\n        },\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk2OTQwMSwiaWF0IjoxNzgyMzY0NjAxLCJqdGkiOiJmMGFlY2NkYzBiMzg0MmI3YjgyOGY4NDAwYmIxZjUzYiIsInVzZXJfaWQiOiJmMmNjMDhjNi1kZWI4LTQ4YzUtOGM4OS0zNTgyNzY2NTg2YmMifQ.mJ4YL4LROCgTcOplRuztVeV1dYv1HNqEcG2Ac034Mqw\",\n        \"session_id\": \"0c0f6af5-989e-406d-bdb6-7c4a607440bc\"\n    }\n}"
+				},
+				{
+					"name": "Throttle limit cross",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"test123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:17:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Retry-After",
+							"value": "46"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Request was throttled. Expected available in 46 seconds.\"\n}"
+				},
+				{
+					"name": "Invalid password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"test12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:18:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"non_field_errors\": [\n        \"Invalid password\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "dashboard using accesstoken",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxNTEwLCJpYXQiOjE3ODIzNzA2MTAsImp0aSI6IjgwMTcxOTBjM2MyYzRiYTU5YTE4ZmQ1MzVlNzRkMjNlIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.vsN0C_I8xPdy-I0VL22-b09ybrG5s_yht_9i-wStNR8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://127.0.0.1:8000/api/dashboard/"
+			},
+			"response": [
+				{
+					"name": "dashboard",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/dashboard/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:24:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Welcome test@example.com\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"f2cc08c6-deb8-48c5-8c89-3582766586bc\",\n            \"email\": \"test@example.com\",\n            \"role\": \"customer\"\n        }\n    }\n}"
+				},
+				{
+					"name": "without accesstoken",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/dashboard/"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:26:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "refreshtoken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxNTEwLCJpYXQiOjE3ODIzNzA2MTAsImp0aSI6IjgwMTcxOTBjM2MyYzRiYTU5YTE4ZmQ1MzVlNzRkMjNlIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.vsN0C_I8xPdy-I0VL22-b09ybrG5s_yht_9i-wStNR8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3NTQxMCwiaWF0IjoxNzgyMzcwNjEwLCJqdGkiOiJhYWE2M2RmODhlMjk0NmM3OGI3ZjEwMGEzYjIyZDczYyIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.jeU_99BGMGywTQlXrfRlj9Hn2eYmR7O2udxnAqX-jN8\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/refresh_token/"
+			},
+			"response": [
+				{
+					"name": "refreshtokensuccessfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk2OTQwMSwiaWF0IjoxNzgyMzY0NjAxLCJqdGkiOiJmMGFlY2NkYzBiMzg0MmI3YjgyOGY4NDAwYmIxZjUzYiIsInVzZXJfaWQiOiJmMmNjMDhjNi1kZWI4LTQ4YzUtOGM4OS0zNTgyNzY2NTg2YmMifQ.mJ4YL4LROCgTcOplRuztVeV1dYv1HNqEcG2Ac034Mqw\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/refresh_token/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:29:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "700"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Token refreshed successfully\",\n    \"data\": {\n        \"user_id\": \"f2cc08c6-deb8-48c5-8c89-3582766586bc\",\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2Mjk2LCJpYXQiOjE3ODIzNjUzOTYsImp0aSI6IjdiODg3MWNmM2Y2ZDRlYzU4M2E4YTMwZDMxNjYyMGNlIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.QAqfzYvpdPrBw-_rqBgksBuzu54HqXT_nCCgLgg_sr8\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk2OTQwMSwiaWF0IjoxNzgyMzY0NjAxLCJqdGkiOiJmMGFlY2NkYzBiMzg0MmI3YjgyOGY4NDAwYmIxZjUzYiIsInVzZXJfaWQiOiJmMmNjMDhjNi1kZWI4LTQ4YzUtOGM4OS0zNTgyNzY2NTg2YmMifQ.mJ4YL4LROCgTcOplRuztVeV1dYv1HNqEcG2Ac034Mqw\"\n    }\n}"
+				},
+				{
+					"name": "without refresh token error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/refresh_token/"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:30:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Refresh token is need not here\"\n}"
+				},
+				{
+					"name": "wrong refresh token error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY1NTAxLCJpYXQiOjE3ODIzNjQ2MDEsImp0aSI6IjE1ZjNkMTM2MmI2ODQwZmNiMGMyMmU4ODQyMDAxY2UyIiwidXNlcl9pZCI6ImYyY2MwOGM2LWRlYjgtNDhjNS04Yzg5LTM1ODI3NjY1ODZiYyJ9.O_QSqNifpgpni-iUmjA_PGeYDJ1-K1OaOArkmviRBJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk2OTQwMSwiaWF0IjoxNzgyMzY0NjAxLCJqdGkiOiJmMGFlY2NkYzBiMzg0MmI3YjgyOGY4NDAwYmIxZjUzYiIsInVzZXJfaWQiOiJmMmNjMDhjNi1kZWI4LTQ4YzUtOGM4OS0zNTgyNzY2NTg2YmMifQ.mJ4YL4LROCgTcOplRuztVeV1dv1HNqEcG2Ac034Mqw\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/refresh_token/"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:31:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is expired\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "allactionsessionusingbearer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY4NzM0LCJpYXQiOjE3ODIzNjc4MzQsImp0aSI6IjVjZjFhMWE5ZjQ3NDQxNDU5MTBkMmZmNTgzYWJlNTAxIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.twNVvq2mJld5w-LFY3pvzEedKFcpsqAQItSn0yBo0gY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/sessions/"
+			},
+			"response": [
+				{
+					"name": "getallloginsession",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfpQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/sessions/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:44:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1753"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total\": 3,\n        \"sessions\": [\n            {\n                \"session_id\": \"d4408146-2512-49e3-aa13-f09e0f1da3c9\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"216449314b154c79adcdccad6394ce0a\",\n                \"refresh_token_jti\": \"6490eec25a784a9a955978de6f7574df\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T05:42:55.397485Z\",\n                \"last_activity\": \"2026-06-25T05:42:55.397508Z\",\n                \"expires_at\": \"2026-07-02T05:42:55.397244Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"9218fae0-5e00-469e-be2e-4b0695a4c035\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"58d60aab47a44da5b28f06814518a3eb\",\n                \"refresh_token_jti\": \"01fc5b486c314be7bbef16d17136ed3f\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T05:39:43.130080Z\",\n                \"last_activity\": \"2026-06-25T05:39:43.130101Z\",\n                \"expires_at\": \"2026-07-02T05:39:43.129796Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"d3859567-e02a-473d-b5d8-b14d1b4f3bfd\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"80d974bd69a047869a4f406d0698579b\",\n                \"refresh_token_jti\": \"fdaa167a5b924902a1f41ceffc24718f\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T05:38:49.527011Z\",\n                \"last_activity\": \"2026-06-25T05:38:49.527035Z\",\n                \"expires_at\": \"2026-07-02T05:38:49.526639Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "invalidtoken error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfp",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/sessions/"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:45:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "accesstoken expired",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfpQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/sessions/"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:09:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is expired\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "afteronerevoked",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY4NzM0LCJpYXQiOjE3ODIzNjc4MzQsImp0aSI6IjVjZjFhMWE5ZjQ3NDQxNDU5MTBkMmZmNTgzYWJlNTAxIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.twNVvq2mJld5w-LFY3pvzEedKFcpsqAQItSn0yBo0gY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/sessions/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:11:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2887"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total\": 5,\n        \"sessions\": [\n            {\n                \"session_id\": \"53fea0fb-dfde-47a2-acca-b57c55529b11\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"5cf1a1a9f4744145910d2ff583abe501\",\n                \"refresh_token_jti\": \"7f5c41fdc066471dada67ad284680136\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T06:10:34.732409Z\",\n                \"last_activity\": \"2026-06-25T06:10:34.732432Z\",\n                \"expires_at\": \"2026-07-02T06:10:34.732166Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"3e05fa58-815e-4483-8866-710abfc50ff7\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"e991a814cbb0478f81985b88775d37ae\",\n                \"refresh_token_jti\": \"584338794e4c4435b038454d92b9476b\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T06:10:26.266728Z\",\n                \"last_activity\": \"2026-06-25T06:10:26.266749Z\",\n                \"expires_at\": \"2026-07-02T06:10:26.266473Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"6af78afb-e968-4880-8a90-7f0fc5bd2b00\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"498c02c675b74025a64ffcaf8f504c48\",\n                \"refresh_token_jti\": \"83ccd5ceb1844bfe90c88763845493e1\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T06:10:12.377666Z\",\n                \"last_activity\": \"2026-06-25T06:10:12.377688Z\",\n                \"expires_at\": \"2026-07-02T06:10:12.377402Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"9218fae0-5e00-469e-be2e-4b0695a4c035\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"58d60aab47a44da5b28f06814518a3eb\",\n                \"refresh_token_jti\": \"01fc5b486c314be7bbef16d17136ed3f\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T05:39:43.130080Z\",\n                \"last_activity\": \"2026-06-25T05:39:43.130101Z\",\n                \"expires_at\": \"2026-07-02T05:39:43.129796Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            },\n            {\n                \"session_id\": \"d3859567-e02a-473d-b5d8-b14d1b4f3bfd\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"80d974bd69a047869a4f406d0698579b\",\n                \"refresh_token_jti\": \"fdaa167a5b924902a1f41ceffc24718f\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T05:38:49.527011Z\",\n                \"last_activity\": \"2026-06-25T05:38:49.527035Z\",\n                \"expires_at\": \"2026-07-02T05:38:49.526639Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "selimlogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login/"
+			},
+			"response": [
+				{
+					"name": "selim1stlogin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:38:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "800"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User login successfull\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\",\n            \"email\": \"selim304218@gmail.com\",\n            \"role\": \"customer\"\n        },\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODI5LCJpYXQiOjE3ODIzNjU5MjksImp0aSI6IjgwZDk3NGJkNjlhMDQ3ODY5YTRmNDA2ZDA2OTg1NzliIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.4BjUzgH_MmlaEe2PkrAnAOBbpVrpigpQuI5h_2X9res\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3MDcyOSwiaWF0IjoxNzgyMzY1OTI5LCJqdGkiOiJmZGFhMTY3YTViOTI0OTAyYTFmNDFjZWZmYzI0NzE4ZiIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.Ren67K-IPntFupAWpHXT6kPInQUoojV45KGA52sYg_0\",\n        \"session_id\": \"d3859567-e02a-473d-b5d8-b14d1b4f3bfd\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "selimextralogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login/"
+			},
+			"response": [
+				{
+					"name": "selim2ndlogin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:39:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "800"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User login successfull\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\",\n            \"email\": \"selim304218@gmail.com\",\n            \"role\": \"customer\"\n        },\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfpQ\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3MDc4MywiaWF0IjoxNzgyMzY1OTgzLCJqdGkiOiIwMWZjNWI0ODZjMzE0YmU3YmJlZjE2ZDE3MTM2ZWQzZiIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.1jV9zleInYIxhd6CMAVUtcSu-lNEkGDxa3GntfXtBMI\",\n        \"session_id\": \"9218fae0-5e00-469e-be2e-4b0695a4c035\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "selim3dlogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login/"
+			},
+			"response": [
+				{
+					"name": "3rdlogin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:42:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "800"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User login successfull\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\",\n            \"email\": \"selim304218@gmail.com\",\n            \"role\": \"customer\"\n        },\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY3MDc1LCJpYXQiOjE3ODIzNjYxNzUsImp0aSI6IjIxNjQ0OTMxNGIxNTRjNzlhZGNkY2NhZDYzOTRjZTBhIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.I0-YdHABTlX7ggS4LHhkKMi_oeX3XmCp1Rj66AMYw04\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3MDk3NSwiaWF0IjoxNzgyMzY2MTc1LCJqdGkiOiI2NDkwZWVjMjVhNzg0YTlhOTU1OTc4ZGU2Zjc1NzRkZiIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.zfO8laWBHQaOGYKbKBcXkd9IFWkfKd2sZ5LCMJ6tdE8\",\n        \"session_id\": \"d4408146-2512-49e3-aa13-f09e0f1da3c9\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "revoke_all_selimlogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login/"
+			},
+			"response": [
+				{
+					"name": "revoke_all_afterlogib",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"selim304218@gmail.com\",\n    \"password\":\"selim304218\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:56:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "800"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User login successfull\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\",\n            \"email\": \"selim304218@gmail.com\",\n            \"role\": \"customer\"\n        },\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxNTEwLCJpYXQiOjE3ODIzNzA2MTAsImp0aSI6IjgwMTcxOTBjM2MyYzRiYTU5YTE4ZmQ1MzVlNzRkMjNlIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.vsN0C_I8xPdy-I0VL22-b09ybrG5s_yht_9i-wStNR8\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3NTQxMCwiaWF0IjoxNzgyMzcwNjEwLCJqdGkiOiJhYWE2M2RmODhlMjk0NmM3OGI3ZjEwMGEzYjIyZDczYyIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.jeU_99BGMGywTQlXrfRlj9Hn2eYmR7O2udxnAqX-jN8\",\n        \"session_id\": \"020132fa-22ed-4a96-b5b4-734e059e5935\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "revoke1bysessionid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfpQ",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/sessions/revoke/d4408146-2512-49e3-aa13-f09e0f1da3c9/"
+			},
+			"response": [
+				{
+					"name": "successfullyrevokebysessionid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY2ODgzLCJpYXQiOjE3ODIzNjU5ODMsImp0aSI6IjU4ZDYwYWFiNDdhNDRkYTViMjhmMDY4MTQ1MThhM2ViIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.jHbYPQNAmgu01If0uOOSMy4DiYfIGkR4YOpAlhhDfpQ",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/sessions/revoke/d4408146-2512-49e3-aa13-f09e0f1da3c9/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 05:50:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Session successfully revocked\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcwNTQwLCJpYXQiOjE3ODIzNjk2NDAsImp0aSI6IjE0NjRlYWU2YzA0MTQ0YmRhZDFhM2ZkYjk1YzNhYmIxIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.lYXIEXc5yess3yOVzMmK8ZQek1KzBN3gtkxftsmVbeQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n {\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3NDQ0MCwiaWF0IjoxNzgyMzY5NjQwLCJqdGkiOiIxMTc2NGYwNzg0MmM0YjY1YTFhNDJmY2IwMTUxMWNlNCIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.0D0HkMPUpzERsIoFXV8TlOvA-091hhF1ySJ0UF0Jna8\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/logout/"
+			},
+			"response": [
+				{
+					"name": "error-need refresh",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY4NzM0LCJpYXQiOjE3ODIzNjc4MzQsImp0aSI6IjVjZjFhMWE5ZjQ3NDQxNDU5MTBkMmZmNTgzYWJlNTAxIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.twNVvq2mJld5w-LFY3pvzEedKFcpsqAQItSn0yBo0gY",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/logout/"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:14:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Refresh token is need not here\"\n}"
+				},
+				{
+					"name": "tokenexpird",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzY3MDc1LCJpYXQiOjE3ODIzNjYxNzUsImp0aSI6IjIxNjQ0OTMxNGIxNTRjNzlhZGNkY2NhZDYzOTRjZTBhIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.I0-YdHABTlX7ggS4LHhkKMi_oeX3XmCp1Rj66AMYw04",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/logout/"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:16:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is expired\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "successfull logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcwNTQwLCJpYXQiOjE3ODIzNjk2NDAsImp0aSI6IjE0NjRlYWU2YzA0MTQ0YmRhZDFhM2ZkYjk1YzNhYmIxIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.lYXIEXc5yess3yOVzMmK8ZQek1KzBN3gtkxftsmVbeQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n {\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Mjk3NDQ0MCwiaWF0IjoxNzgyMzY5NjQwLCJqdGkiOiIxMTc2NGYwNzg0MmM0YjY1YTFhNDJmY2IwMTUxMWNlNCIsInVzZXJfaWQiOiI4N2NmZjhkMi1jMjI4LTRjOGItODY0Ni0xMWQ1YzQzMTkzY2QifQ.0D0HkMPUpzERsIoFXV8TlOvA-091hhF1ySJ0UF0Jna8\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/logout/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:41:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Log out out successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "revoke_all_for_selim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxMzEwLCJpYXQiOjE3ODIzNzA0MTAsImp0aSI6IjkzN2VmZGM0ZWFmNjQwODRiNmY1OWMzYWE3MzY5Y2Y2IiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.t-YpyfB1ltlyd7MHCscKxo7Ey5m9j5gBDcDpuKYgoI0",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/sessions/revoke_all/"
+			},
+			"response": [
+				{
+					"name": "revokeall",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxMzEwLCJpYXQiOjE3ODIzNzA0MTAsImp0aSI6IjkzN2VmZGM0ZWFmNjQwODRiNmY1OWMzYWE3MzY5Y2Y2IiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.t-YpyfB1ltlyd7MHCscKxo7Ey5m9j5gBDcDpuKYgoI0",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/sessions/revoke_all/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 06:54:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"All 11 session revoked\"\n}"
+				}
+			]
+		},
+		{
+			"name": "revokeall_thenselim_4th_login",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxNTEwLCJpYXQiOjE3ODIzNzA2MTAsImp0aSI6IjgwMTcxOTBjM2MyYzRiYTU5YTE4ZmQ1MzVlNzRkMjNlIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.vsN0C_I8xPdy-I0VL22-b09ybrG5s_yht_9i-wStNR8",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/sessions/"
+			},
+			"response": [
+				{
+					"name": "revokerall_then4th login",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzcxNTEwLCJpYXQiOjE3ODIzNzA2MTAsImp0aSI6IjgwMTcxOTBjM2MyYzRiYTU5YTE4ZmQ1MzVlNzRkMjNlIiwidXNlcl9pZCI6Ijg3Y2ZmOGQyLWMyMjgtNGM4Yi04NjQ2LTExZDVjNDMxOTNjZCJ9.vsN0C_I8xPdy-I0VL22-b09ybrG5s_yht_9i-wStNR8",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/sessions/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 25 Jun 2026 07:00:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "619"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total\": 1,\n        \"sessions\": [\n            {\n                \"session_id\": \"020132fa-22ed-4a96-b5b4-734e059e5935\",\n                \"user_email\": \"selim304218@gmail.com\",\n                \"user_role\": \"customer\",\n                \"access_token_jti\": \"8017190c3c2c4ba59a18fd535e74d23e\",\n                \"refresh_token_jti\": \"aaa63df88e2946c78b7f100a3b22d73c\",\n                \"device_name\": \"Unknown Device\",\n                \"browser_name\": \"Unknown Browser\",\n                \"ip_address\": \"127.0.0.1\",\n                \"user_agent\": \"PostmanRuntime/7.49.1\",\n                \"login_time\": \"2026-06-25T06:56:50.983169Z\",\n                \"last_activity\": \"2026-06-25T06:56:50.983192Z\",\n                \"expires_at\": \"2026-07-02T06:56:50.982931Z\",\n                \"is_active\": true,\n                \"is_blacklisted\": false,\n                \"user\": \"87cff8d2-c228-4c8b-8646-11d5c43193cd\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		}
+	]
+}
