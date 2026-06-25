@@ -1,0 +1,21 @@
+Session ID,User Email,Device Name,Browser Name,IP Address,Login Time,Last Activity,Expires At,Is Active,Is Blacklisted
+0cacbb90-212e-4888-8e40-020f9b05ea34,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 07:18:08,2026-06-25 07:18:08,2026-07-02 07:18:08,True,False
+020132fa-22ed-4a96-b5b4-734e059e5935,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:56:50,2026-06-25 06:56:50,2026-07-02 06:56:50,True,False
+eff02458-08c2-48c6-bfa8-dd27516e390c,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:53:30,2026-06-25 06:53:30,2026-07-02 06:53:30,False,True
+80269394-b2fc-4491-b2db-2bf6c6cf345e,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:40:40,2026-06-25 06:40:40,2026-07-02 06:40:40,False,True
+204e219c-b889-47a4-b26f-4043ecd39eff,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:38:12,2026-06-25 06:38:12,2026-07-02 06:38:12,False,True
+9f7b2227-c8b6-4ee9-bba1-20d8f1d59600,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:22:47,2026-06-25 06:22:47,2026-07-02 06:22:47,False,True
+dbd46e6a-1884-434c-8a1b-ac8448bee998,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:20:12,2026-06-25 06:20:12,2026-07-02 06:20:12,False,True
+8f7eaf26-ba4d-43c7-ab38-2eb9c6536e46,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:17:40,2026-06-25 06:17:40,2026-07-02 06:17:40,False,True
+53fea0fb-dfde-47a2-acca-b57c55529b11,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:10:34,2026-06-25 06:10:34,2026-07-02 06:10:34,False,True
+3e05fa58-815e-4483-8866-710abfc50ff7,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:10:26,2026-06-25 06:10:26,2026-07-02 06:10:26,False,True
+6af78afb-e968-4880-8a90-7f0fc5bd2b00,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 06:10:12,2026-06-25 06:10:12,2026-07-02 06:10:12,False,True
+d4408146-2512-49e3-aa13-f09e0f1da3c9,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:42:55,2026-06-25 05:42:55,2026-07-02 05:42:55,False,True
+9218fae0-5e00-469e-be2e-4b0695a4c035,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:39:43,2026-06-25 05:39:43,2026-07-02 05:39:43,False,True
+d3859567-e02a-473d-b5d8-b14d1b4f3bfd,selim304218@gmail.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:38:49,2026-06-25 05:38:49,2026-07-02 05:38:49,False,True
+41347855-ded3-4bc5-ba02-3236762104da,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:17:53,2026-06-25 05:17:53,2026-07-02 05:17:53,True,False
+7c3bab87-f34e-4a00-b64c-8adf1860e475,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:17:51,2026-06-25 05:17:51,2026-07-02 05:17:51,True,False
+faa6df33-bee4-4563-931c-1df1998e4c86,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:17:49,2026-06-25 05:17:49,2026-07-02 05:17:49,True,False
+265e75ce-c764-4a57-83b0-546b6dc12953,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:17:44,2026-06-25 05:17:44,2026-07-02 05:17:44,True,False
+1d85a173-5ba2-4429-bd79-bc1edd3e8f6b,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:17:40,2026-06-25 05:17:40,2026-07-02 05:17:40,True,False
+0c0f6af5-989e-406d-bdb6-7c4a607440bc,test@example.com,Unknown Device,Unknown Browser,127.0.0.1,2026-06-25 05:16:41,2026-06-25 05:16:41,2026-07-02 05:16:41,True,False
