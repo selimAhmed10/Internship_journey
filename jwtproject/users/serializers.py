@@ -36,6 +36,8 @@ class UserLoginSerializer(serializers.Serializer):
         
         refresh=RefreshToken.for_user(user)
         access_token=refresh.access_token
+        access_token.payload['role']=user.role   #custom claim on the payload just use the role and the userid because this part only do encode not encript so for keep safe just use the public info not confidential 
+        access_token.payload['account_id']=user.id
         return {
             'user':user,
             'email':user.email,
