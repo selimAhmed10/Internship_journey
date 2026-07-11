@@ -148,10 +148,12 @@ class CustomerSendMoneyView(APIView):
             with transaction.atomic():
                 sender=User.objects.select_for_update().get(id=request.user.id)
                 recipient=User.objects.select_for_update().get(id=recipient.id)
-                sender.balance=F('balance') - amount
+               
+                sender.balance=F('balance')-amount
                 sender.save(update_fields=['balance'])
-                recipient.balance=F('balance') + amount
+                recipient.balance=F('balance')+amount
                 recipient.save(update_fields=['balance'])
+                
                 transaction_obj=Transaction.objects.create(
                     user=sender,
                     to_user=recipient,
@@ -174,3 +176,54 @@ class CustomerSendMoneyView(APIView):
                 
         except Exception as e:
             return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
+        
+
+
+class CustomerCashOut(APIView):
+    permission_classes=[IsCustomer]
+    
+    def post(self,request):
+        serializer=CashOutSerializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        
+        agent_phone=serializer.validated_data['agent_phone']
+        amount=serializer.validated_data['amount']
+        
+        try:
+            agent=User.objects.get(phone_number_wallet_number=agent_phone)
+        except User.DoesNotExist:
+            return Response({'error':'Agent not found'},status=status.HTTP_404_NOT_FOUND)
+        
+        try:
+            with transaction.atomic():
+                customer=User.objects.select_for_update().get(id=request.user.id)
+                agent=User.objects.select_for_update().get(id=agent.id)
+                
+                customer.balance = F('balance')-amount
+                customer.save(update_fields=['balance'])
+                
+                agent.balance=F('balance') + amount
+                agent.save(update_fields=['balance'])
+                
+                transaction_obj=Transaction.objects.create(
+                    user=customer,
+                    agent=agent,
+                    transaction_type='cash_out',
+                    amount=amount,
+                    status='successful'
+                )
+                
+                return Response({
+                    'message':'Cash out successful',
+                    'transaction':{
+                        'timestamp':transaction_obj.timestamp.strftime('%Y-%m-%d %H:%M'),
+                        'transaction_id':transaction_obj.transaction_id,
+                        'type':'Cash Out',
+                        'amount':str(transaction_obj.amount),
+                        'via_agent':transaction_obj.agent.phone_number_wallet_number,
+                        'status':transaction_obj.status,
+                    }
+                }, status=status.HTTP_201_CREATED)
+                
+        except Exception as e:
+            return Response({'error':str(e)}, status=status.HTTP_400_BAD_REQUEST)
