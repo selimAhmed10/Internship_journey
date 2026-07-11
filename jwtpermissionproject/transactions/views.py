@@ -30,3 +30,15 @@ class AdminAllTransactionsView(APIView):
         transactions=Transaction.objects.all()[:20]
         serializer=TrasactionSerializer(transactions,many=True)
         return Response(serializer.data)
+
+class AgentDashboard(APIView):
+    permission_classes=[IsAgent]
+    def get(self,request):
+        user = request.user
+        return Response({
+            'name':user.full_name,
+            'role':user.role,
+            'phone':user.phone_number_wallet_number,
+            'balance':user.balance,
+        })
+        
