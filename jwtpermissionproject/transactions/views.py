@@ -99,3 +99,15 @@ class CashIn(APIView):
                 },status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
+        
+
+class CustomerDashboardView(APIView):
+    permission_classes=[IsCustomer]
+    def get(self, request):
+        user=request.user
+        return Response({
+            'name':user.full_name,
+            'role':user.role,
+            'phone':user.phone_number_wallet_number,
+            'balance':user.balance,
+        })
