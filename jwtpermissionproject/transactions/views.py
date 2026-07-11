@@ -111,3 +111,19 @@ class CustomerDashboardView(APIView):
             'phone':user.phone_number_wallet_number,
             'balance':user.balance,
         })
+        
+class CustomerTransactions(APIView):
+    permission_classes=[IsCustomer]
+    
+    def get(self, request):
+        transactions = Transaction.objects.filter(Q(user=request.user)|Q(to_user=request.user))[:20]
+        data = []
+        for t in transactions:
+            data.append({
+                'timestamp':t.timestamp.strftime('%Y-%m-%d %H:%M'),
+                'transaction_id':t.transaction_id,
+                'type':t.get_transaction_type_display(),
+                'amount':str(t.amount),
+                'status':t.status,
+            })
+        return Response(data)
