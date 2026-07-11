@@ -23,3 +23,10 @@ class AdminDashboard(APIView):
             'total_agents': total_agents,
             'total_transactions':total_transaction,
         })
+        
+class AdminAllTransactionsView(APIView):
+    permission_classes=[IsAdmin]
+    def get(self,request):
+        transactions=Transaction.objects.all()[:20]
+        serializer=TrasactionSerializer(transactions,many=True)
+        return Response(serializer.data)
