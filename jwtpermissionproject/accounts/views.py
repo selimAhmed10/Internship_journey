@@ -7,7 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 from permissions.custom_permissions import IsAdmin
 from .serializer import UserLoginSerializer,UserRegistrationSerializer,UserListSerializer,UserCreateSerializer,UserUpdateSerializer
-
+from django.shortcuts import get_object_or_404
 class UserResgistrationAPIView(APIView):
     permission_classes=[AllowAny]
     
@@ -70,4 +70,36 @@ class AdminUserListView(APIView):
         users=User.objects.all().order_by('-created_at')
         serializer=UserListSerializer(users,many=True)
         return Response(serializer.data)
-         
+
+
+class UserManageView(APIView):
+    permission_classes=[IsAdmin]
+    def get(self,request,user_id=None):
+        if user_id:
+            user=get_object_or_404(User,id=user_id)
+            serializer=UserListSerializer(user)
+            return Response(serializer.data)
+        
+        users=User.objects.all().order_by('-created_at')
+        serializer=UserListSerializer(users,many=True)
+        return Response(serializer.data)
+    
+    def post(self,request):
+        serializer=UserCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            user=serializer.save()
+            return Response({'message':'User created successfully','user':UserListSerializer(user).data},status=status.HTTP_201_CREATED)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self,request,user_id):
+        user=get_object_or_404(User,id=user_id)
+        serializer = UserUpdateSerializer(user, data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'User updated successfully','user': UserListSerializer(user).data})
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, user_id):
+        user=get_object_or_404(User,id=user_id)
+        user.delete()
+        return Response({'message':'User deleted successfully'},status=status.HTTP_200_OK)
