@@ -42,3 +42,18 @@ class AgentDashboard(APIView):
             'balance':user.balance,
         })
         
+class AgentTransaction(APIView):
+    permission_classes=[IsAgent]
+    def get(self,request):
+        transactions=Transaction.objects.filter(Q(agent=request.user)|Q(user=request.user))[:20]
+        data=[]        
+        for t in transactions:
+            data.append({
+                'timestamp':t.timestamp.strftime('%Y-%m-%d %H:%M'),
+                'transaction_id':t.transaction_id,
+                'wallet_number':t.user.phone_number_wallet_number,
+                'type':t.get_transaction_type_display(),
+                'amount':str(t.amount),
+                'status':t.status,
+            })
+        return Response(data)
