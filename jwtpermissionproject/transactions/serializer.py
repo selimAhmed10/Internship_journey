@@ -38,7 +38,8 @@ class CashInSerializer(serializers.ModelSerializer):
     amount=serializers.DecimalField(required=True,max_digits=15,decimal_places=2,min_value=10)
     
     def validate_customer_phone(self,value):
-        user=validate_and_get_user(value,role='customer')
+        agent=self.context['request'].user
+        user=validate_and_get_user(value,exclude_user=agent,role='customer')
         return user.phone_number_wallet_number
     
     def validate(self,attrs):
@@ -52,7 +53,8 @@ class CashOutSerializer(serializers.ModelSerializer):
     amount=serializers.DecimalField(required=True,max_digits=15,decimal_places=2,min_value=10)
     
     def validate_agent_phone(self,value):
-        user=validate_and_get_user(value,role='agent')
+        customer=self.context['request'].user
+        user=validate_and_get_user(value,exclude_user=customer,role='agent')
         return user.phone_number_wallet_number
     
     def validate_amount(self,attrs):
