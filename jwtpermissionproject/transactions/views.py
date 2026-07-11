@@ -127,3 +127,50 @@ class CustomerTransactions(APIView):
                 'status':t.status,
             })
         return Response(data)
+    
+    
+
+class CustomerSendMoneyView(APIView):
+    permission_classes = [IsCustomer]
+    
+    def post(self, request):
+        serializer=SendMoneySerializer(data=request.data,context={'request':request})
+        serializer.is_valid(raise_exception=True)
+        recipient_phone=serializer.validated_data['recipient_phone']
+        amount=serializer.validated_data['amount']
+        
+        try:
+            recipient=User.objects.get(phone_number_wallet_number=recipient_phone)
+        except User.DoesNotExist:
+            return Response({'error':'Recipient not found'},status=status.HTTP_404_NOT_FOUND)
+        
+        try:
+            with transaction.atomic():
+                sender=User.objects.select_for_update().get(id=request.user.id)
+                recipient=User.objects.select_for_update().get(id=recipient.id)
+                sender.balance=F('balance') - amount
+                sender.save(update_fields=['balance'])
+                recipient.balance=F('balance') + amount
+                recipient.save(update_fields=['balance'])
+                transaction_obj=Transaction.objects.create(
+                    user=sender,
+                    to_user=recipient,
+                    transaction_type='send_money',
+                    amount=amount,
+                    status='successful'
+                )
+                
+                return Response({
+                    'message':'Money sent successfully',
+                    'transaction':{
+                        'timestamp':transaction_obj.timestamp.strftime('%Y-%m-%d %H:%M'),
+                        'transaction_id':transaction_obj.transaction_id,
+                        'type':'Send Money',
+                        'amount':str(transaction_obj.amount),
+                        'to':transaction_obj.to_user.phone_number_wallet_number,
+                        'status':transaction_obj.status,
+                    }
+                },status=status.HTTP_201_CREATED)
+                
+        except Exception as e:
+            return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
