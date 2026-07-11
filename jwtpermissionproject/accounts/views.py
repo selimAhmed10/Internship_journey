@@ -26,7 +26,7 @@ class UserResgistrationAPIView(APIView):
             },status=status.HTTP_201_CREATED)
             
 class UserloginAPIView(APIView):
-    parser_classes=[AllowAny]
+    permission_classes=[AllowAny]
     def post(self,request):
         loginserializer=UserLoginSerializer(data=request.data)
         if loginserializer.is_valid():
@@ -59,4 +59,4 @@ class LogOutAPIview(APIView):
             return Response({'message':"Logout successfully"})
         except Exception as e:
             return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
-        
+         
