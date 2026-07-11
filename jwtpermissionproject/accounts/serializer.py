@@ -100,3 +100,31 @@ class UserUpdateSerializer(serializers.ModelSerializer):
             if not re.match(r'^01[3-9]\d{8}$', value):
                 raise serializers.ValidationError("Phone number must start with 01 and be 11 digits")
         return value
+
+
+class UserCreateSerializer(serializers.ModelSerializer):
+    password=serializers.CharField(
+        write_only=True, 
+        required=True, 
+        validators=[validate_password]
+    )
+    class Meta:
+        model=User
+        fields=['username','password','phone_number_wallet_number','email', 'first_name', 'last_name', 'address','role','balance','is_active','is_verified']
+    
+    def validate_phone_number_wallet_number(self, value):
+        if value:
+            value=value.strip()
+            if value.startswith('+8801'):
+                value=value[3:]
+            elif value.startswith('8801'):
+                value=value[2:]
+            
+            if not re.match(r'^01[3-9]\d{8}$', value):
+                raise serializers.ValidationError("Phone number must start with 01 and be 11 digits")
+        return value
+    
+    def create(self, validated_data):
+        user=User.objects.create_user(**validated_data)
+        return user
+
