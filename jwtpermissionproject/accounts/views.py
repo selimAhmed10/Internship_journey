@@ -4,7 +4,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializer import UserLoginSerializer,UserRegistrationSerializer
+from .models import User
+from permissions.custom_permissions import IsAdmin
+from .serializer import UserLoginSerializer,UserRegistrationSerializer,UserListSerializer,UserCreateSerializer,UserUpdateSerializer
 
 class UserResgistrationAPIView(APIView):
     permission_classes=[AllowAny]
@@ -59,4 +61,13 @@ class LogOutAPIview(APIView):
             return Response({'message':"Logout successfully"})
         except Exception as e:
             return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
+        
+        
+        
+class AdminUserListView(APIView):
+    permission_classes=[IsAdmin]
+    def get(self,request):
+        users=User.objects.all().order_by('-created_at')
+        serializer=UserListSerializer(users,many=True)
+        return Response(serializer.data)
          
