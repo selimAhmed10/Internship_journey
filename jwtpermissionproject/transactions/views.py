@@ -57,3 +57,45 @@ class AgentTransaction(APIView):
                 'status':t.status,
             })
         return Response(data)
+    
+class CashIn(APIView):
+    permission_classes=[IsAgent]
+    def post(self,request):
+        cashise=CashInSerializer(data=request.data,context={'request':request})
+        cashise.is_valid(raise_exception=True)
+        customer_phone=cashise.validated_data['customer_phone']
+        amount=cashise.validated_data['amount']
+        
+        try:
+            customer=User.objects.get(phone_number_wallet_number=customer_phone)
+        except User.DoesNotExist:
+            return Response({'error':'the customer not found'},status=status.HTTP_404_NOT_FOUND)
+        
+        try:
+            with transaction.atomic():
+                agent=User.objects.select_for_update().get(id=request.user.id)
+                customer=User.objects.select_for_update().get(id=customer.id)
+                agent.balance=F('balance')-amount
+                agent.save(update_fields=['balance'])
+                customer.balance=F('balance')+amount
+                customer.save(update_fields=['balance'])
+                transaction_obj=Transaction.objects.create(
+                    user=customer,
+                    agent=agent,
+                    transaction_type='cash_in',
+                    amount=amount,
+                    status='successful'
+                )
+                return Response({
+                    'message': 'Cash in successful',
+                    'transaction': {
+                        'timestamp':transaction_obj.timestamp.strftime('%Y-%m-%d %H:%M'),
+                        'transaction_id':transaction_obj.transaction_id,
+                        'wallet_number':transaction_obj.user.phone_number_wallet_number,
+                        'type':'Cash In',
+                        'amount':str(transaction_obj.amount),
+                        'status':transaction_obj.status,
+                    }
+                },status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
