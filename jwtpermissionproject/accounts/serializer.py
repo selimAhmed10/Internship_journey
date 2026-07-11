@@ -77,3 +77,26 @@ class UserLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("use valid username and password") 
         attrs['user']=user
         return attrs
+    
+class UserListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields ='__all__'
+        
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username','phone_number_wallet_number','email', 'first_name','last_name','address','role', 'balance', 'is_active', 'is_verified']
+    
+    def validate_phone_number_wallet_number(self,value):
+        if value:
+            value=value.strip()
+            if value.startswith('+8801'):
+                value=value[3:]
+            elif value.startswith('8801'):
+                value=value[2:]
+            
+            if not re.match(r'^01[3-9]\d{8}$', value):
+                raise serializers.ValidationError("Phone number must start with 01 and be 11 digits")
+        return value
