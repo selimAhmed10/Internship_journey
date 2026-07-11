@@ -1,3 +1,62 @@
-from django.shortcuts import render
+from urllib import request
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from .serializer import UserLoginSerializer,UserRegistrationSerializer
 
-# Create your views here.
+class UserResgistrationAPIView(APIView):
+    permission_classes=[AllowAny]
+    
+    def post(self,request):
+        userregistration=UserRegistrationSerializer(data=request.data)
+        if userregistration.is_valid():
+            user=userregistration.save()
+            
+            return Response({
+                'message':" the user created successfully",
+                'user':{
+                    'id':str(user.id),
+                    'username':user.username,
+                    'role':user.role,
+                    'email':user.email,
+                    'full_name':user.full_name,
+                }
+            },status=status.HTTP_201_CREATED)
+            
+class UserloginAPIView(APIView):
+    parser_classes=[AllowAny]
+    def post(self,request):
+        loginserializer=UserLoginSerializer(data=request.data)
+        if loginserializer.is_valid():
+            user=loginserializer.validated_data['user']
+            
+            refresh=RefreshToken.for_user(user)
+            access=refresh.access_token
+            
+            refresh['role']=user.role 
+            access['role']=user.role
+            
+            return Response({
+                'access':str(access),
+                'refresh':str(refresh),
+                'user':{
+                    'id':str(user.id),
+                    'username':user.username,
+                    'role':user.role,
+                }
+            })
+            
+class LogOutAPIview(APIView):
+    permission_classes=[IsAuthenticated]
+    def post(self,request):
+        try:
+            refresh_token=request.data.get('refresh')
+            if refresh_token:
+                token=RefreshToken(refresh_token)
+                token.blacklist()
+            return Response({'message':"Logout successfully"})
+        except Exception as e:
+            return Response({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
+        
