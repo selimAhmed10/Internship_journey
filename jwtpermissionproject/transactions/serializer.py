@@ -12,9 +12,9 @@ def validate_and_get_user(phone,role=None,exclude_user=None):
     if not phone:
         raise serializers.ValidationError("phone number is required")
     phone=phone.strip()
-    if phone.startwith('+8801'):
+    if phone.startswith('+8801'):
         phone=phone[3:]
-    elif phone.startwith('8801'):
+    elif phone.startswith('8801'):
         phone=phone[2:]
     if not re.match(r'^01[3-9]\d{8}$',phone):
         raise serializers.ValidationError("the phone number must startwith 01 and must 11")
@@ -36,6 +36,10 @@ def validate_and_get_user(phone,role=None,exclude_user=None):
 class CashInSerializer(serializers.ModelSerializer):
     customer_phone=serializers.CharField(required=True)
     amount=serializers.DecimalField(required=True,max_digits=15,decimal_places=2,min_value=10)
+    class Meta:
+        model=Transaction
+        fields=['customer_phone','amount']
+    
     
     def validate_customer_phone(self,value):
         agent=self.context['request'].user
