@@ -5,7 +5,7 @@ import re
 from .models  import User
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
-    password=serializers.CharField(write_only=True,required=True,validators=validate_password)
+    password=serializers.CharField(write_only=True,required=True,validators=[validate_password])
     class Meta:
         model=User
         fields='__all__'    
