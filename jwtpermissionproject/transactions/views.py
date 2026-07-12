@@ -5,8 +5,8 @@ from django.db import transaction
 from django.db.models import F, Q
 from .models import Transaction,User
 from .serializer import TrasactionSerializer,CashInSerializer,CashOutSerializer,SendMoneySerializer
-from permissions.custom_permissions import IsAdmin, IsAgent, IsCustomer
-
+from permissions.custom_permissions import IsAdmin, IsAgent, IsCustomer, IsTransactionOwner
+from rest_framework.permissions import IsAuthenticated
 class AdminDashboard(APIView):
     permission_classes=[IsAdmin]
     
@@ -227,3 +227,12 @@ class CustomerCashOut(APIView):
                 
         except Exception as e:
             return Response({'error':str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+        
+class TransactionDetailView(APIView):
+    permission_classes=[IsAuthenticated,IsTransactionOwner]
+    def get(self,request,transaction_id):
+        transaction=Transaction.objects.get(transaction_id=transaction_id)
+        self.check_object_permissions(request,transaction)
+        serializer=TrasactionSerializer(transaction)
+        return Response(serializer.data)
