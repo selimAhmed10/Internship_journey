@@ -1,0 +1,3212 @@
+{
+	"info": {
+		"_postman_id": "a4cf015f-d18f-453a-b091-20c2dc86fca5",
+		"name": "jwtpermissionproject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "55448483",
+		"_collection_link": "https://selim-ahmed-cse-2762200.postman.co/workspace/Md.-Selim-Ahmed-(223014188)'s-W~05d1af4b-8c39-41a2-80fc-47168a1b64e8/collection/55448483-a4cf015f-d18f-453a-b091-20c2dc86fca5?action=share&source=collection_link&creator=55448483"
+	},
+	"item": [
+		{
+			"name": "userRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"customer12\",\n    \"password\": \"customer12\",\n    \"phone_number_wallet_number\": \"+8801311111112\",\n    \"email\": \"customer12@email.com\",\n    \"first_name\": \"Kahim\",\n    \"last_name\": \"Customer12\",\n    \"balance\":11000.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "customer_created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer3\",\n    \"password\": \"customer3\",\n    \"phone_number_wallet_number\": \"01311111113\",\n    \"email\": \"customer3@email.com\",\n    \"first_name\": \"Rahim\",\n    \"last_name\": \"Customer\",\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 06:52:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \" the user created successfully\",\n    \"user\": {\n        \"id\": \"6f93c15d-1ff6-415f-b7c9-08f12961325d\",\n        \"username\": \"customer2\",\n        \"role\": \"customer\",\n        \"email\": \"customer2@email.com\",\n        \"full_name\": \"Rahim Customer\"\n    }\n}"
+				},
+				{
+					"name": "adminregister",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin3\",\n    \"password\": \"admin123456\",\n    \"email\": \"admin3@mfs.com\",\n    \"first_name\": \"Super\",\n    \"last_name\": \"Admin\",\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 06:57:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "182"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \" the user created successfully\",\n    \"user\": {\n        \"id\": \"57062e29-7aaf-4116-ba78-f0c81d37e8ed\",\n        \"username\": \"admin1\",\n        \"role\": \"admin\",\n        \"email\": \"admin@mfs.com\",\n        \"full_name\": \"Super Admin\"\n    }\n}"
+				},
+				{
+					"name": "agent_register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"username\": \"agent4\",\n    \"password\": \"agent123456\",\n    \"phone_number_wallet_number\": \"01722222224\",\n    \"email\": \"agent@mfs.com\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Agent\",\n    \"balance\":5000.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"agent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 06:58:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \" the user created successfully\",\n    \"user\": {\n        \"id\": \"8aa65872-1c96-4faf-9805-0d397f578dd1\",\n        \"username\": \"agent1\",\n        \"role\": \"agent\",\n        \"email\": \"agent@mfs.com\",\n        \"full_name\": \"John Agent\"\n    }\n}"
+				},
+				{
+					"name": "email_alreadyexist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer10\",\n    \"password\": \"customer10\",\n    \"phone_number_wallet_number\": \"+8801311111110\",\n    \"email\": \"customer3@email.com\",\n    \"first_name\": \"Rahim\",\n    \"last_name\": \"Customer\",\n    \"balance\":10000.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 08:46:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": [\n        \"user with this email already exists.\"\n    ]\n}"
+				},
+				{
+					"name": "user_andemailalreadyexist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer10\",\n    \"password\": \"customer10\",\n    \"phone_number_wallet_number\": \"+8801311111110\",\n    \"email\": \"customer10@email.com\",\n    \"first_name\": \"Rahim\",\n    \"last_name\": \"Customer\",\n    \"balance\":10000.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 08:47:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": [\n        \"A user with that username already exists.\"\n    ],\n    \"email\": [\n        \"user with this email already exists.\"\n    ]\n}"
+				},
+				{
+					"name": "this_phone_number-alreadyExist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer11\",\n    \"password\": \"customer11\",\n    \"phone_number_wallet_number\": \"01311111111\",\n    \"email\": \"customer11@email.com\",\n    \"first_name\": \"Kahim\",\n    \"last_name\": \"Customer11\",\n    \"balance\":11000.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 08:49:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"phone_number_wallet_number\": [\n        \"user with this phone number wallet number already exists.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "admin_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin1\",\n    \"password\": \"admin123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all_user_list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ1ODQwLCJpYXQiOjE3ODM4NDU1MjIsImp0aSI6ImFjNzdkMTExZGQ4MjRmMjg4YzhjOTlkNmY4ZGNjZTVjIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.HT-0_48KJL1-7UyHPKTRbtjizd8o37OjGofmiYbd2KA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/admin/users/list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"admin",
+						"users",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminManageUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ1ODQwLCJpYXQiOjE3ODM4NDU1MjIsImp0aSI6ImFjNzdkMTExZGQ4MjRmMjg4YzhjOTlkNmY4ZGNjZTVjIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.HT-0_48KJL1-7UyHPKTRbtjizd8o37OjGofmiYbd2KA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/admin/users/list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"admin",
+						"users",
+						"list",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getUserbyId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUwOTEwLCJpYXQiOjE3ODM4NDczMTAsImp0aSI6IjgzNzJmZGYxMTczMzRjNjZiN2U1ZWVmMDA4ODdiNjg2IiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.kMHx2cFrPFjGEF6-BbmiNoc7hI0ieMA0GyDjX8Ddm8s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/admin/users/99c61240-5307-4bfb-82bb-a8eb1ef4c642/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"users",
+								"99c61240-5307-4bfb-82bb-a8eb1ef4c642",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:09:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "381"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"99c61240-5307-4bfb-82bb-a8eb1ef4c642\",\n    \"username\": \"agent11\",\n    \"password\": \"pbkdf2_sha256$600000$F0gjqqQ7Hze8V2LCqEHJW4$9VDCD2r5qNGWtW96M3MuEm/pm8AYceIZXXQV8naI+fQ=\",\n    \"phone_number_wallet_number\": \"01722222211\",\n    \"email\": \"agent11@mfs.com\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Agent\",\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"agent\",\n    \"balance\": \"500088.00\",\n    \"is_active\": true,\n    \"is_verified\": false\n}"
+				},
+				{
+					"name": "update(put)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUwOTEwLCJpYXQiOjE3ODM4NDczMTAsImp0aSI6IjgzNzJmZGYxMTczMzRjNjZiN2U1ZWVmMDA4ODdiNjg2IiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.kMHx2cFrPFjGEF6-BbmiNoc7hI0ieMA0GyDjX8Ddm8s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"balance\":300000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/admin/users/99c61240-5307-4bfb-82bb-a8eb1ef4c642/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"users",
+								"99c61240-5307-4bfb-82bb-a8eb1ef4c642",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:11:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "428"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User updated successfully\",\n    \"user\": {\n        \"id\": \"99c61240-5307-4bfb-82bb-a8eb1ef4c642\",\n        \"username\": \"agent11\",\n        \"password\": \"pbkdf2_sha256$600000$F0gjqqQ7Hze8V2LCqEHJW4$9VDCD2r5qNGWtW96M3MuEm/pm8AYceIZXXQV8naI+fQ=\",\n        \"phone_number_wallet_number\": \"01722222211\",\n        \"email\": \"agent11@mfs.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Agent\",\n        \"address\": \"Dhaka, Bangladesh\",\n        \"role\": \"agent\",\n        \"balance\": \"300000.00\",\n        \"is_active\": true,\n        \"is_verified\": false\n    }\n}"
+				},
+				{
+					"name": "delete_user_by_id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUwOTEwLCJpYXQiOjE3ODM4NDczMTAsImp0aSI6IjgzNzJmZGYxMTczMzRjNjZiN2U1ZWVmMDA4ODdiNjg2IiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.kMHx2cFrPFjGEF6-BbmiNoc7hI0ieMA0GyDjX8Ddm8s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/admin/users/5d8315c7-876d-4730-8fc3-63a73381f759/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"users",
+								"5d8315c7-876d-4730-8fc3-63a73381f759",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:12:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "user_create_by_admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ1ODQwLCJpYXQiOjE3ODM4NDU1MjIsImp0aSI6ImFjNzdkMTExZGQ4MjRmMjg4YzhjOTlkNmY4ZGNjZTVjIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.HT-0_48KJL1-7UyHPKTRbtjizd8o37OjGofmiYbd2KA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/admin/users/list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"admin",
+						"users",
+						"list",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "agent_create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ3MTg2LCJpYXQiOjE3ODM4NDY4ODYsImp0aSI6IjdmMWZmMTM4NzRjMzQzN2U4ZGZhMzE1MGViMTViZjEyIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.madwaRl7ruV5juONrbcl-qsIyeU4ugsLHnpvaettUMA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"username\": \"agent12\",\n    \"password\": \"agent123456\",\n    \"phone_number_wallet_number\": \"01722222212\",\n    \"email\": \"agent12@mfs.com\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Agent12\",\n    \"balance\":50300.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"agent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/admin/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"users",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:01:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "385"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"username\": \"agent12\",\n        \"password\": \"pbkdf2_sha256$600000$PtqwR3K5gArkx9qhWzker7$UEkdZOcAmIxrQ8W04YpuAd0yP40HbfSOYlRBZ+5YoVg=\",\n        \"phone_number_wallet_number\": \"01722222212\",\n        \"email\": \"agent12@mfs.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Agent12\",\n        \"address\": \"Dhaka, Bangladesh\",\n        \"role\": \"agent\",\n        \"balance\": \"50300.00\",\n        \"is_active\": true,\n        \"is_verified\": false\n    }\n}"
+				},
+				{
+					"name": "customer_created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ3MTg2LCJpYXQiOjE3ODM4NDY4ODYsImp0aSI6IjdmMWZmMTM4NzRjMzQzN2U4ZGZhMzE1MGViMTViZjEyIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.madwaRl7ruV5juONrbcl-qsIyeU4ugsLHnpvaettUMA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"username\": \"customer13\",\n    \"password\": \"customer13\",\n    \"phone_number_wallet_number\": \"01722222213\",\n    \"email\": \"customer13@mfs.com\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Agent12\",\n    \"balance\":50300.00,\n    \"address\": \"Dhaka, Bangladesh\",\n    \"role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/admin/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"users",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:02:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "394"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"username\": \"customer13\",\n        \"password\": \"pbkdf2_sha256$600000$SRJVgxsxoRx7U0AkxRLQRB$GKnyPmm+m3JAgXchmKilC/VCdGP5PcdxCzzHt9HB8+Q=\",\n        \"phone_number_wallet_number\": \"01722222213\",\n        \"email\": \"customer13@mfs.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Agent12\",\n        \"address\": \"Dhaka, Bangladesh\",\n        \"role\": \"customer\",\n        \"balance\": \"50300.00\",\n        \"is_active\": true,\n        \"is_verified\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "agent_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"agent10\",\n\"password\": \"agent123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer10_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"customer10\",\n    \"password\": \"customer10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer12_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"customer12\",\n    \"password\": \"customer12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refreshToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4NDQ1MDMyMiwiaWF0IjoxNzgzODQ1NTIyLCJqdGkiOiJjNjliMGQ5MjMwY2U0ZTg5OWM3NWE0YjE1MDk5YWUzNCIsInVzZXJfaWQiOiI1NzA2MmUyOS03YWFmLTQxMTYtYmE3OC1mMGM4MWQzN2U4ZWQiLCJyb2xlIjoiYWRtaW4ifQ.LvF-UNE2OOf2WgTDdqcN9yoW9dgPNQOH6IbCYlLSiEM\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/auth/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"auth",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "refreshToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4NDQ1MDMyMiwiaWF0IjoxNzgzODQ1NTIyLCJqdGkiOiJjNjliMGQ5MjMwY2U0ZTg5OWM3NWE0YjE1MDk5YWUzNCIsInVzZXJfaWQiOiI1NzA2MmUyOS03YWFmLTQxMTYtYmE3OC1mMGM4MWQzN2U4ZWQiLCJyb2xlIjoiYWRtaW4ifQ.LvF-UNE2OOf2WgTDdqcN9yoW9dgPNQOH6IbCYlLSiEM\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/auth/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"auth",
+								"refresh",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 08:39:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "622"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODQ1ODQwLCJpYXQiOjE3ODM4NDU1MjIsImp0aSI6ImFjNzdkMTExZGQ4MjRmMjg4YzhjOTlkNmY4ZGNjZTVjIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.HT-0_48KJL1-7UyHPKTRbtjizd8o37OjGofmiYbd2KA\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4NDQ1MDM0MCwiaWF0IjoxNzgzODQ1NTQwLCJqdGkiOiJhZjRlODQ3ZTdhZTk0YTg1OTRiYTU1YjEyMzk5NGNkMiIsInVzZXJfaWQiOiI1NzA2MmUyOS03YWFmLTQxMTYtYmE3OC1mMGM4MWQzN2U4ZWQiLCJyb2xlIjoiYWRtaW4ifQ.VGpZL4-UAhzh_OOerd6WD9MjZkh5UHmzHJr_U_2OJ-o\"\n}"
+				}
+			]
+		},
+		{
+			"name": "AdminDashboard",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admindashboardview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUwOTEwLCJpYXQiOjE3ODM4NDczMTAsImp0aSI6IjgzNzJmZGYxMTczMzRjNjZiN2U1ZWVmMDA4ODdiNjg2IiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.kMHx2cFrPFjGEF6-BbmiNoc7hI0ieMA0GyDjX8Ddm8s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/admin/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"admin",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:15:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Super Admin\",\n    \"role\": \"admin\",\n    \"email\": \"admin@mfs.com\",\n    \"total_customers\": 8,\n    \"total_agents\": 6,\n    \"total_transactions\": 0\n}"
+				},
+				{
+					"name": "all transaction operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1OTU4LCJpYXQiOjE3ODM4NTIzNTgsImp0aSI6ImVhYjUyMmRiM2MzMTQzZDA5OGEyZGYwODkxOTUxMzcwIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.Nlm6W9Mfzl7g_ddthR5lXmbjDHJFliGq_K1ZcdfGMXM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/admin/transactions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"admin",
+								"transactions",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:32:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "918"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"bc906076-29fa-4e27-94e2-b302e205cad3\",\n        \"transaction_id\": \"TX-1783851593-34020\",\n        \"transaction_type\": \"cash_out\",\n        \"status\": \"successful\",\n        \"amount\": \"1000.00\",\n        \"timestamp\": \"2026-07-12T10:19:53.226939Z\",\n        \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n        \"to_user\": null,\n        \"agent\": \"a3c2608c-6d3d-41a0-b385-b22eaafd5b68\"\n    },\n    {\n        \"id\": \"2038b765-458d-4b5e-9429-37421c6f874b\",\n        \"transaction_id\": \"TX-1783850507-29471\",\n        \"transaction_type\": \"send_money\",\n        \"status\": \"successful\",\n        \"amount\": \"500.00\",\n        \"timestamp\": \"2026-07-12T10:01:47.912957Z\",\n        \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n        \"to_user\": \"5601cf34-2d16-41e2-ad6d-b3f9089da3f8\",\n        \"agent\": null\n    },\n    {\n        \"id\": \"b1b9225c-f74d-4b82-ab70-7e724830fcb2\",\n        \"transaction_id\": \"TX-1783849029-98759\",\n        \"transaction_type\": \"cash_in\",\n        \"status\": \"successful\",\n        \"amount\": \"500.00\",\n        \"timestamp\": \"2026-07-12T09:37:09.337131Z\",\n        \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n        \"to_user\": null,\n        \"agent\": \"a3c2608c-6d3d-41a0-b385-b22eaafd5b68\"\n    }\n]"
+				},
+				{
+					"name": "detailsviewof adminwant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1OTU4LCJpYXQiOjE3ODM4NTIzNTgsImp0aSI6ImVhYjUyMmRiM2MzMTQzZDA5OGEyZGYwODkxOTUxMzcwIiwidXNlcl9pZCI6IjU3MDYyZTI5LTdhYWYtNDExNi1iYTc4LWYwYzgxZDM3ZThlZCIsInJvbGUiOiJhZG1pbiJ9.Nlm6W9Mfzl7g_ddthR5lXmbjDHJFliGq_K1ZcdfGMXM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/transactions/TX-1783851593-34020/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"transactions",
+								"TX-1783851593-34020",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:34:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "305"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bc906076-29fa-4e27-94e2-b302e205cad3\",\n    \"transaction_id\": \"TX-1783851593-34020\",\n    \"transaction_type\": \"cash_out\",\n    \"status\": \"successful\",\n    \"amount\": \"1000.00\",\n    \"timestamp\": \"2026-07-12T10:19:53.226939Z\",\n    \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n    \"to_user\": null,\n    \"agent\": \"a3c2608c-6d3d-41a0-b385-b22eaafd5b68\"\n}"
+				}
+			]
+		},
+		{
+			"name": "AgentDashboard",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "agentdashboardview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNDAyLCJpYXQiOjE3ODM4NDc4MDIsImp0aSI6ImZmY2FiN2ExYzZmNTQ0NjlhYzQwYjljODYwNTk4ZjE4IiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.NjlTdWb7Q6t68SlANhwP3M_2Bqt104HhB69mXswmCTA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:17:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"John Agent\",\n    \"role\": \"agent\",\n    \"phone\": \"01722222210\",\n    \"balance\": 500088\n}"
+				},
+				{
+					"name": "after cashin 500",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNDAyLCJpYXQiOjE3ODM4NDc4MDIsImp0aSI6ImZmY2FiN2ExYzZmNTQ0NjlhYzQwYjljODYwNTk4ZjE4IiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.NjlTdWb7Q6t68SlANhwP3M_2Bqt104HhB69mXswmCTA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:05:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"John Agent\",\n    \"role\": \"agent\",\n    \"phone\": \"01722222210\",\n    \"balance\": 499588\n}"
+				},
+				{
+					"name": "after recieve 1000 cashout",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1MjM3LCJpYXQiOjE3ODM4NTE2MzcsImp0aSI6IjQzNTczNDYwNmI0NzRmZmVhMzUyZTA4NWRmOThkZTIzIiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.iRdFVYc8_4yVAdd-pRGrCD4nQfFL8cdAHuuT0ERQmjk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:20:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"John Agent\",\n    \"role\": \"agent\",\n    \"phone\": \"01722222210\",\n    \"balance\": 500588\n}"
+				},
+				{
+					"name": "agentAlltransactionwith he assign",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1NjY5LCJpYXQiOjE3ODM4NTIwNjksImp0aSI6IjM3YzViOGY3ZDg1ZDQ0NmY4YmU3OWM5NTYwYzkzZDQwIiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.VRB4eFMK_MVV6FY_b4Q8y_QuJ14_30MWi_e4LpbB2BM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/transactions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"transactions",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:28:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "321"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"timestamp\": \"2026-07-12 10:19\",\n        \"transaction_id\": \"TX-1783851593-34020\",\n        \"wallet_number\": \"01311111110\",\n        \"type\": \"Cash Out\",\n        \"amount\": \"1000.00\",\n        \"status\": \"successful\"\n    },\n    {\n        \"timestamp\": \"2026-07-12 09:37\",\n        \"transaction_id\": \"TX-1783849029-98759\",\n        \"wallet_number\": \"01311111110\",\n        \"type\": \"Cash In\",\n        \"amount\": \"500.00\",\n        \"status\": \"successful\"\n    }\n]"
+				},
+				{
+					"name": "detailsvieof transaction for agent",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1NjY5LCJpYXQiOjE3ODM4NTIwNjksImp0aSI6IjM3YzViOGY3ZDg1ZDQ0NmY4YmU3OWM5NTYwYzkzZDQwIiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.VRB4eFMK_MVV6FY_b4Q8y_QuJ14_30MWi_e4LpbB2BM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/transactions/TX-1783851593-34020/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"transactions",
+								"TX-1783851593-34020",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:31:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "305"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bc906076-29fa-4e27-94e2-b302e205cad3\",\n    \"transaction_id\": \"TX-1783851593-34020\",\n    \"transaction_type\": \"cash_out\",\n    \"status\": \"successful\",\n    \"amount\": \"1000.00\",\n    \"timestamp\": \"2026-07-12T10:19:53.226939Z\",\n    \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n    \"to_user\": null,\n    \"agent\": \"a3c2608c-6d3d-41a0-b385-b22eaafd5b68\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Customer 10 Dashboard",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/api/customer/dashboard/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"customer",
+						"dashboard",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "customerdashboard view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:19:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Rahim Customer\",\n    \"role\": \"customer\",\n    \"phone\": \"01311111110\",\n    \"balance\": 10000\n}"
+				},
+				{
+					"name": "after500cashin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:47:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Rahim Customer\",\n    \"role\": \"customer\",\n    \"phone\": \"01311111110\",\n    \"balance\": 10500\n}"
+				}
+			]
+		},
+		{
+			"name": "Customer 12 Dashboard",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "after receive 500 from 10",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU0NDY4LCJpYXQiOjE3ODM4NTA4NjgsImp0aSI6IjMxOTBhNzZhNDNmYjRmNzZhYzg4ZjYyMmMxY2YzYTc2IiwidXNlcl9pZCI6IjU2MDFjZjM0LTJkMTYtNDFlMi1hZDZkLWIzZjkwODlkYTNmOCIsInJvbGUiOiJjdXN0b21lciJ9.UeqBjKglSTKbwuLZVlOfcTOK9iyVdfzG3KhZqSa2Rw0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/dashboard/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"dashboard",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:08:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Kahim Customer12\",\n    \"role\": \"customer\",\n    \"phone\": \"01311111112\",\n    \"balance\": 11500\n}"
+				}
+			]
+		},
+		{
+			"name": "Agent Transaction Operation",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "customer_cant_ do this",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_phone\": \"01311111110\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/cash-in/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"cash-in",
+								""
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:24:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"You do not have permission to perform this action.\"\n}"
+				},
+				{
+					"name": "agent_cant-do this",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_phone\": \"01311111110\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/cash-in/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"cash-in",
+								""
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:25:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"You do not have permission to perform this action.\"\n}"
+				},
+				{
+					"name": "successfull cashin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxOTg1LCJpYXQiOjE3ODM4NDgzODUsImp0aSI6IjA2MDVmZDFmOGQ3YzRjNTJiNTI0NWM0ZWJmZDA1NTFkIiwidXNlcl9pZCI6ImEzYzI2MDhjLTZkM2QtNDFhMC1iMzg1LWIyMmVhYWZkNWI2OCIsInJvbGUiOiJhZ2VudCJ9.DQ1SwOqyLeLahhGHAfXj9AEBjBjULtqg0wNZQy4ZH04",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_phone\": \"01311111110\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/agent/cash-in/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"agent",
+								"cash-in",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 09:37:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cash in successful\",\n    \"transaction\": {\n        \"timestamp\": \"2026-07-12 09:37\",\n        \"transaction_id\": \"TX-1783849029-98759\",\n        \"wallet_number\": \"01311111110\",\n        \"type\": \"Cash In\",\n        \"amount\": \"500.00\",\n        \"status\": \"successful\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Customer_10_transactionAll",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "sendmoneyto 10 to 12 customer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_phone\": \"01311111112\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/send-money/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"send-money",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:01:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "202"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Money sent successfully\",\n    \"transaction\": {\n        \"timestamp\": \"2026-07-12 10:01\",\n        \"transaction_id\": \"TX-1783850507-29471\",\n        \"type\": \"Send Money\",\n        \"amount\": \"500.00\",\n        \"to\": \"01311111112\",\n        \"status\": \"successful\"\n    }\n}"
+				},
+				{
+					"name": "cant do transaction own account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_phone\": \"01311111110\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/send-money/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"send-money",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:09:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"recipient_phone\": [\n        \"you cant do operation in your own number\"\n    ]\n}"
+				},
+				{
+					"name": "User not found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_phone\": \"01311111119\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/send-money/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"send-money",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:10:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"recipient_phone\": [\n        \"No user found using the number \"\n    ]\n}"
+				},
+				{
+					"name": "non customer wallet cant receive send money and other",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_phone\": \"01722222210\",\n    \"amount\": \"500.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/send-money/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"send-money",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:10:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"recipient_phone\": [\n        \"User is not a customer\"\n    ]\n}"
+				},
+				{
+					"name": "insufficient balance",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODUxNTI3LCJpYXQiOjE3ODM4NDc5MjcsImp0aSI6IjZlMDA3MGYzZWIwYzQ3YWM4ZTA5MjBlZmVhYmFmMjU5IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.RDCgpZ3EC_Qs18pJDOY0_ZcOJOVxAHAjM69xMfqHwsQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agent_phone\": \"01722222210\",\n    \"amount\": 5000000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/cash-out/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"cash-out",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:16:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"non_field_errors\": [\n        \"insufficient balance ,now amount 10000.00\"\n    ]\n}"
+				},
+				{
+					"name": "cashout successful to agent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1MTczLCJpYXQiOjE3ODM4NTE1NzMsImp0aSI6ImFkYmM0ZWQwNzAyYTRhZTNhY2Q3ZmNhZjQ4ZmJhN2U2IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.0fN2U2GxXPkGOnEBuFavQHTiQdHFMjsyoCtIlsdRVzI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agent_phone\": \"01722222210\",\n    \"amount\": 1000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/cash-out/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"cash-out",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:19:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "204"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cash out successful\",\n    \"transaction\": {\n        \"timestamp\": \"2026-07-12 10:19\",\n        \"transaction_id\": \"TX-1783851593-34020\",\n        \"type\": \"Cash Out\",\n        \"amount\": \"1000.00\",\n        \"via_agent\": \"01722222210\",\n        \"status\": \"successful\"\n    }\n}"
+				},
+				{
+					"name": "customer 10 all transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1MTczLCJpYXQiOjE3ODM4NTE1NzMsImp0aSI6ImFkYmM0ZWQwNzAyYTRhZTNhY2Q3ZmNhZjQ4ZmJhN2U2IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.0fN2U2GxXPkGOnEBuFavQHTiQdHFMjsyoCtIlsdRVzI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agent_phone\": \"01722222210\",\n    \"amount\": 1000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/customer/transactions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"transactions",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:22:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "393"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"timestamp\": \"2026-07-12 10:19\",\n        \"transaction_id\": \"TX-1783851593-34020\",\n        \"type\": \"Cash Out\",\n        \"amount\": \"1000.00\",\n        \"status\": \"successful\"\n    },\n    {\n        \"timestamp\": \"2026-07-12 10:01\",\n        \"transaction_id\": \"TX-1783850507-29471\",\n        \"type\": \"Send Money\",\n        \"amount\": \"500.00\",\n        \"status\": \"successful\"\n    },\n    {\n        \"timestamp\": \"2026-07-12 09:37\",\n        \"transaction_id\": \"TX-1783849029-98759\",\n        \"type\": \"Cash In\",\n        \"amount\": \"500.00\",\n        \"status\": \"successful\"\n    }\n]"
+				},
+				{
+					"name": "gettransactiondetailsheassigned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzODU1MTczLCJpYXQiOjE3ODM4NTE1NzMsImp0aSI6ImFkYmM0ZWQwNzAyYTRhZTNhY2Q3ZmNhZjQ4ZmJhN2U2IiwidXNlcl9pZCI6IjdiMzVmNGY3LWM5ZmYtNGVhNy04ODhhLTQ4MjcxYzA3NjlkYSIsInJvbGUiOiJjdXN0b21lciJ9.0fN2U2GxXPkGOnEBuFavQHTiQdHFMjsyoCtIlsdRVzI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/transactions/TX-1783851593-34020/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"transactions",
+								"TX-1783851593-34020",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jul 2026 10:26:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "305"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bc906076-29fa-4e27-94e2-b302e205cad3\",\n    \"transaction_id\": \"TX-1783851593-34020\",\n    \"transaction_type\": \"cash_out\",\n    \"status\": \"successful\",\n    \"amount\": \"1000.00\",\n    \"timestamp\": \"2026-07-12T10:19:53.226939Z\",\n    \"user\": \"7b35f4f7-c9ff-4ea7-888a-48271c0769da\",\n    \"to_user\": null,\n    \"agent\": \"a3c2608c-6d3d-41a0-b385-b22eaafd5b68\"\n}"
+				}
+			]
+		}
+	]
+}
