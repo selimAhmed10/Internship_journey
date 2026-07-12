@@ -155,7 +155,8 @@ SIMPLE_JWT = {
     'ALGORITHM':'HS256',
     'SIGNING_KEY':SECRET_KEY,
     'AUTH_HEADER_TYPES':('Bearer',),
-    'USER_ID_CLAIM':None,
+    'USER_ID_FIELD':'id',     
+    'USER_ID_CLAIM': 'user_id',   
     'JTI_CLAIM':'jti',
 }
 
