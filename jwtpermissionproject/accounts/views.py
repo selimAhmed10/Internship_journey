@@ -8,6 +8,7 @@ from .models import User
 from permissions.custom_permissions import IsAdmin
 from .serializer import UserLoginSerializer,UserRegistrationSerializer,UserListSerializer,UserCreateSerializer,UserUpdateSerializer
 from django.shortcuts import get_object_or_404
+
 class UserResgistrationAPIView(APIView):
     permission_classes=[AllowAny]
     
@@ -26,6 +27,7 @@ class UserResgistrationAPIView(APIView):
                     'full_name':user.full_name,
                 }
             },status=status.HTTP_201_CREATED)
+        return Response(userregistration.errors,status=status.HTTP_400_BAD_REQUEST)
             
 class UserloginAPIView(APIView):
     permission_classes=[AllowAny]
