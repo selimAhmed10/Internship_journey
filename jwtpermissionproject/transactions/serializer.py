@@ -65,7 +65,7 @@ class CashOutSerializer(serializers.ModelSerializer):
         user=validate_and_get_user(value,exclude_user=customer,role='agent')
         return user.phone_number_wallet_number
     
-    def validate_amount(self,attrs):
+    def validate(self,attrs):
         customer=self.context['request'].user
         if customer.balance<attrs['amount']:
             raise serializers.ValidationError(f"insufficient balance ,now amount {agent.balance}")
@@ -75,12 +75,15 @@ class SendMoneySerializer(serializers.ModelSerializer):
     recipient_phone=serializers.CharField(required=True)
     amount=serializers.DecimalField(required=True,max_digits=15,decimal_places=2,min_value=10)
     
+    class Meta:
+        model=Transaction
+        fields=['recipient_phone','amount']
     def validate_recipient_phone(self,value):
         sender=self.context['request'].user
         user=validate_and_get_user(value,exclude_user=sender,role='customer')
-        return super.phone_number_wallet_number
+        return user.phone_number_wallet_number
     
-    def validate_amount(self,attrs):
+    def validate(self,attrs):
         sender=self.context['request'].user
         if sender.balance<attrs['amount']:
             raise serializers.ValidationError(f"insufficient balance ,now amount {sender.balance}")
