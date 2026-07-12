@@ -11,4 +11,5 @@ urlpatterns = [
     path('customer/transactions/',CustomerTransactions.as_view(), name='customer_transactions'),
     path('customer/send-money/',CustomerSendMoneyView.as_view(), name='customer_send-money'),
     path('customer/cash-out/',CustomerCashOut.as_view(), name='customer_cash_out'),
+    path('transactions/<str:transaction_id>/',TransactionDetailView.as_view(),name='transaction_detail'),
 ]
