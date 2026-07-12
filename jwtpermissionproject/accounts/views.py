@@ -38,7 +38,6 @@ class UserloginAPIView(APIView):
             
             refresh=RefreshToken.for_user(user)
             access=refresh.access_token
-            
             refresh['role']=user.role 
             access['role']=user.role
             
@@ -51,7 +50,7 @@ class UserloginAPIView(APIView):
                     'role':user.role,
                 }
             },status=status.HTTP_200_OK)
-        return Response(loginserializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        return Response(loginserializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
 class LogOutAPIview(APIView):
     permission_classes=[IsAuthenticated]

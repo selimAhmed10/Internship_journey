@@ -81,7 +81,7 @@ class UserLoginSerializer(serializers.Serializer):
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields ='__all__'
+        fields =fields = ['username','password','phone_number_wallet_number','email', 'first_name','last_name','address','role', 'balance', 'is_active', 'is_verified']
         
 
 class UserUpdateSerializer(serializers.ModelSerializer):
