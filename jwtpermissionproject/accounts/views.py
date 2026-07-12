@@ -50,7 +50,8 @@ class UserloginAPIView(APIView):
                     'username':user.username,
                     'role':user.role,
                 }
-            })
+            },status=status.HTTP_200_OK)
+        return Response(loginserializer.errors,status=status.HTTP_400_BAD_REQUEST)
             
 class LogOutAPIview(APIView):
     permission_classes=[IsAuthenticated]
