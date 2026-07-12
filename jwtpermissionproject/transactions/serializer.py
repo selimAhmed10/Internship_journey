@@ -68,7 +68,7 @@ class CashOutSerializer(serializers.ModelSerializer):
     def validate(self,attrs):
         customer=self.context['request'].user
         if customer.balance<attrs['amount']:
-            raise serializers.ValidationError(f"insufficient balance ,now amount {agent.balance}")
+            raise serializers.ValidationError(f"insufficient balance ,now amount {customer.balance}")
         return attrs
     
 class SendMoneySerializer(serializers.ModelSerializer):
