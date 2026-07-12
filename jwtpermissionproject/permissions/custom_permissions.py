@@ -31,3 +31,11 @@ class IsAgent(RoleBasedPermission):
 
 class IsCustomer(RoleBasedPermission):
     allowed_roles=['customer']
+      
+class IsTransactionOwner(BasePermission):
+    def has_object_permission(self,request,view,obj):
+        if request.user.role=='admin':
+            return True
+        if request.user.role=='agent':
+            return obj.agent==request.user or obj.user == request.user
+        return obj.user==request.user or obj.to_user == request.user
