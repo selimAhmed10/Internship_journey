@@ -55,6 +55,10 @@ class CashInSerializer(serializers.ModelSerializer):
 class CashOutSerializer(serializers.ModelSerializer):
     agent_phone=serializers.CharField(required=True)
     amount=serializers.DecimalField(required=True,max_digits=15,decimal_places=2,min_value=10)
+    class Meta:
+        model=Transaction
+        fields=['agent_phone','amount']
+    
     
     def validate_agent_phone(self,value):
         customer=self.context['request'].user
