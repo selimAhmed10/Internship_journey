@@ -2,7 +2,7 @@ from urllib import request
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework.permissions import AllowAny,IsAuthenticated,IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 from permissions.custom_permissions import IsAdmin
@@ -67,7 +67,7 @@ class LogOutAPIview(APIView):
         
         
 class AdminUserListView(APIView):
-    permission_classes=[IsAdmin]
+    permission_classes=[IsAdmin and IsAuthenticatedOrReadOnly]
     def get(self,request):
         users=User.objects.all().order_by('-created_at')
         serializer=UserListSerializer(users,many=True)
