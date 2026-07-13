@@ -6,10 +6,10 @@ from django.db.models import F, Q
 from .models import Transaction,User
 from .serializer import TrasactionSerializer,CashInSerializer,CashOutSerializer,SendMoneySerializer
 from permissions.custom_permissions import IsAdmin, IsAgent, IsCustomer, IsTransactionOwner
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
 class AdminDashboard(APIView):
     permission_classes=[IsAdmin]
-    
+
     def get(self,request):
         user= request.user
         total_customer=User.objects.filter(role='customer').count()
@@ -25,14 +25,14 @@ class AdminDashboard(APIView):
         })
         
 class AdminAllTransactionsView(APIView):
-    permission_classes=[IsAdmin]
+    permission_classes=[IsAdmin,IsAuthenticatedOrReadOnly]
     def get(self,request):
         transactions=Transaction.objects.all()[:20]
         serializer=TrasactionSerializer(transactions,many=True)
         return Response(serializer.data)
 
 class AgentDashboard(APIView):
-    permission_classes=[IsAgent]
+    permission_classes=[IsAgent,IsAuthenticatedOrReadOnly]
     def get(self,request):
         user = request.user
         return Response({
@@ -43,7 +43,7 @@ class AgentDashboard(APIView):
         })
         
 class AgentTransaction(APIView):
-    permission_classes=[IsAgent]
+    permission_classes=[IsAgent,IsAuthenticatedOrReadOnly]
     def get(self,request):
         transactions=Transaction.objects.filter(Q(agent=request.user)|Q(user=request.user))[:20]
         data=[]        
@@ -102,7 +102,7 @@ class CashIn(APIView):
         
 
 class CustomerDashboardView(APIView):
-    permission_classes=[IsCustomer]
+    permission_classes=[IsCustomer,IsAuthenticatedOrReadOnly]
     def get(self, request):
         user=request.user
         return Response({
@@ -113,7 +113,7 @@ class CustomerDashboardView(APIView):
         })
         
 class CustomerTransactions(APIView):
-    permission_classes=[IsCustomer]
+    permission_classes=[IsCustomer,IsAuthenticatedOrReadOnly]
     
     def get(self, request):
         transactions = Transaction.objects.filter(Q(user=request.user)|Q(to_user=request.user))[:20]
@@ -230,7 +230,7 @@ class CustomerCashOut(APIView):
         
         
 class TransactionDetailView(APIView):
-    permission_classes=[IsAuthenticated,IsTransactionOwner]
+    permission_classes=[IsAuthenticated,IsTransactionOwner,IsAuthenticatedOrReadOnly]
     def get(self,request,transaction_id):
         transaction=Transaction.objects.get(transaction_id=transaction_id)
         self.check_object_permissions(request,transaction)
